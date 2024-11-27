@@ -75,8 +75,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAEAAAAPAAkAAAABAAEAAAAAAAkAAAADAAE
 tile_set = SubResource("TileSet_66kpu")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(788, 218)
-scale = Vector2(0.4, 0.4)
+position = Vector2(788, 300)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("3_sd65t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
@@ -88,8 +88,8 @@ scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_wns7q")
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
-position = Vector2(249, 218)
-scale = Vector2(0.4, 0.4)
+position = Vector2(84, 289)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("5_kxq5f")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
