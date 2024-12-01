@@ -6,6 +6,6 @@ extends Entity
 
 func _ready() -> void:
 	cost = 100.0
-	movement_speed = 3000.0
+	#movement_speed = 4000.0
 	super()
 	

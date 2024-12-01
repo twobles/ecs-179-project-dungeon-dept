@@ -59,9 +59,6 @@ func _ready() -> void:
 	summoning = false
 	change_facing(facing)
 	
-	print("ready")
-	print("target_pos: ", target.position)
-	
 	calc_timer.timeout.connect(_on_timer_timeout)
 	navigation_agent_2d.path_desired_distance = 4.0
 	navigation_agent_2d.target_desired_distance = 4.0
@@ -70,7 +67,6 @@ func _ready() -> void:
 
 func actor_setup() -> void:
 	await get_tree().physics_frame
-	print("target_pos: ", target.position)
 	set_target_position(target.position)
 	
 
@@ -87,8 +83,6 @@ func _physics_process(delta: float) -> void:
 		
 	var cur_pos = global_position
 	var next_pos = navigation_agent_2d.get_next_path_position()
-	print("cur: ", cur_pos)
-	print("next: ", next_pos)
 	
 	var direction = cur_pos.direction_to(next_pos)
 	velocity = direction * movement_speed * delta
@@ -98,6 +92,17 @@ func _physics_process(delta: float) -> void:
 #func _apply_movement(_delta: float):
 	#
 	#move_and_slide()
+
+func _on_spacer_range_area_entered(area):
+	var space_target = area.owner
+	print("space_target: ", space_target.position)
+	
+	var cur_pos = global_position
+	var tar_pos = space_target.global_position
+	var direction = cur_pos.direction_to(tar_pos)
+	velocity = (-direction * 0.5) * movement_speed
+	print("space_velocity: ", velocity)
+	move_and_slide()
 
 
 func change_facing(new_facing: Facing) -> void:
