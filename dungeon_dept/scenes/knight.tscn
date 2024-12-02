@@ -1,10 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b350tl00c4f2w"]
+[gd_scene load_steps=7 format=3 uid="uid://b350tl00c4f2w"]
 
 [ext_resource type="Script" path="res://scripts/knight.gd" id="1_s5a57"]
 [ext_resource type="Texture2D" uid="uid://e7wsys325ouf" path="res://assets/knight.png" id="2_gxehw"]
 
+[sub_resource type="Animation" id="Animation_mtxxx"]
+resource_name = "walking"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_axkan"]
+_data = {
+"walking": SubResource("Animation_mtxxx")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whq2n"]
-size = Vector2(70.0001, 112.714)
+size = Vector2(69.0001, 112.714)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qqfqd"]
 radius = 91.6788
@@ -17,6 +25,12 @@ script = ExtResource("1_s5a57")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1, 1)
 texture = ExtResource("2_gxehw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_axkan")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8.57136, 68.5714)

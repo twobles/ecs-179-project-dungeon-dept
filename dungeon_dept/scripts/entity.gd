@@ -26,7 +26,7 @@ const DEFAULT_MOVE_VELOCITY: float = 300.0
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var calc_timer: Timer = $calcTimer
-
+@onready var animations = $AnimationPlayer
 
 #var right_cmd : Command
 #var left_cmd : Command
@@ -76,7 +76,6 @@ func set_target_position(target_pos: Vector2) -> void:
 
 
 func _physics_process(delta: float) -> void: 
-	#_apply_movement(delta)
 	if navigation_agent_2d.is_navigation_finished():
 		#print("finished")
 		return
@@ -87,11 +86,15 @@ func _physics_process(delta: float) -> void:
 	var direction = cur_pos.direction_to(next_pos)
 	velocity = direction * movement_speed * delta
 	print("velocity: ", velocity)
-	move_and_slide()
-
-#func _apply_movement(_delta: float):
-	#
+	_apply_movement(delta)
 	#move_and_slide()
+
+func _apply_movement(_delta: float):
+	move_and_slide()
+	if velocity.length() > 1.0:
+		animations.play("walking")
+	else:
+		animations.play("attack")
 
 func _on_spacer_range_area_entered(area):
 	var space_target = area.owner
