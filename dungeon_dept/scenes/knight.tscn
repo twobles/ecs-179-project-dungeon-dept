@@ -23,7 +23,6 @@ scale = Vector2(0.35, 0.35)
 script = ExtResource("1_s5a57")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 1)
 texture = ExtResource("2_gxehw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -43,11 +42,13 @@ debug_enabled = true
 [node name="calcTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Spacer" type="Node2D" parent="."]
+[node name="SpacerRange" type="Area2D" parent="."]
+position = Vector2(-8.57153, 8.57141)
+scale = Vector2(1, 1)
 
-[node name="SpacerRange" type="Area2D" parent="Spacer"]
-position = Vector2(-14.2857, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spacer/SpacerRange"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpacerRange"]
 position = Vector2(0, 58)
 shape = SubResource("CircleShape2D_qqfqd")
+
+[node name="Spacer" type="Node2D" parent="."]
+position = Vector2(5.71429, 8.57143)

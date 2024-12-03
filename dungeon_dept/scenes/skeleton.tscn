@@ -75,7 +75,7 @@ _data = {
 size = Vector2(69.0001, 112.714)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qqfqd"]
-radius = 91.6788
+radius = 101.02
 
 [node name="Skeleton" type="CharacterBody2D"]
 script = ExtResource("1_eml38")
@@ -93,7 +93,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(33.5, 65.7143)
+position = Vector2(72, 100)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_whq2n")
 
@@ -103,11 +103,17 @@ debug_enabled = true
 [node name="calcTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Spacer" type="Node2D" parent="."]
-position = Vector2(36, -5)
+[node name="spacer_radius" type="Area2D" parent="."]
+position = Vector2(73, 47)
+collision_layer = 7
+collision_mask = 7
 
-[node name="SpacerRange" type="Area2D" parent="Spacer"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spacer/SpacerRange"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spacer_radius"]
 position = Vector2(0, 58)
 shape = SubResource("CircleShape2D_qqfqd")
+
+[node name="Spacer" type="Node2D" parent="."]
+position = Vector2(73, 47)
+
+[connection signal="body_entered" from="spacer_radius" to="." method="_on_spacer_radius_body_entered"]
+[connection signal="body_exited" from="spacer_radius" to="." method="_on_spacer_radius_body_exited"]

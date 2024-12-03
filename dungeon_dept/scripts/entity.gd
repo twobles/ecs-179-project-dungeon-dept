@@ -23,10 +23,14 @@ const DEFAULT_MOVE_VELOCITY: float = 300.0
 
 @export var movement_speed: float = DEFAULT_MOVE_VELOCITY
 @export var target: CharacterBody2D
+@export var space: float = 50.0
+@export var separation_force: float = 500.0
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var calc_timer: Timer = $calcTimer
 @onready var animations = $AnimationPlayer
+
+var _local_entities = []
 
 #var right_cmd : Command
 #var left_cmd : Command
@@ -71,7 +75,7 @@ func actor_setup() -> void:
 	
 
 func set_target_position(target_pos: Vector2) -> void:
-	print("target_pos: ", target_pos)
+	#print("target_pos: ", target_pos)
 	navigation_agent_2d.target_position = target_pos
 
 
@@ -84,28 +88,31 @@ func _physics_process(delta: float) -> void:
 	var next_pos = navigation_agent_2d.get_next_path_position()
 	
 	var direction = cur_pos.direction_to(next_pos)
+	
+	var separation = Vector2()
+	for entity in _local_entities:
+		var direction_away = cur_pos - entity.position
+		var distance = cur_pos.distance_to(entity.position)
+		if distance < space:
+			separation += direction_away.normalized() / distance
+			
 	velocity = direction * movement_speed * delta
-	print("velocity: ", velocity)
+	if not _local_entities.is_empty():
+		velocity += separation.normalized() * movement_speed * 0.8 * delta
+	
+	#print("locals: ", _local_entities)
+	#print("velocity: ", velocity)
 	_apply_movement(delta)
 	#move_and_slide()
 
 func _apply_movement(_delta: float):
 	move_and_slide()
-	if velocity.length() > 1.0:
+	#print(velocity.length())
+	#print(velocity.length() > 5.0)
+	if velocity.length() > 5.0:
 		animations.play("walking")
 	else:
 		animations.play("attack")
-
-func _on_spacer_range_area_entered(area):
-	var space_target = area.owner
-	print("space_target: ", space_target.position)
-	
-	var cur_pos = global_position
-	var tar_pos = space_target.global_position
-	var direction = cur_pos.direction_to(tar_pos)
-	velocity = (-direction * 0.5) * movement_speed
-	print("space_velocity: ", velocity)
-	move_and_slide()
 
 
 func change_facing(new_facing: Facing) -> void:
@@ -123,3 +130,17 @@ func command_callback(_name:String) -> void:
 	
 func _on_timer_timeout() -> void:
 	set_target_position(target.position)
+
+
+func _on_spacer_radius_body_entered(body: Node2D) -> void:
+	if body == self:
+		return
+	print("self: ", is_instance_of(self, Monster))
+	print("other: ", body is Monster)
+	if is_instance_of(self, Monster) and body is Monster:
+		_local_entities.push_back(body)
+		print("entered: ", _local_entities)
+
+
+func _on_spacer_radius_body_exited(body: Node2D) -> void:
+	_local_entities.erase(body)
