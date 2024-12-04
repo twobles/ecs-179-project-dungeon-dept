@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c52pdhxhweo3v"]
+[gd_scene load_steps=11 format=4 uid="uid://c52pdhxhweo3v"]
 
 [ext_resource type="PackedScene" path="res://scenes/background.tscn" id="1_c647s"]
 [ext_resource type="PackedScene" uid="uid://0bs0pte8web4" path="res://scenes/board.tscn" id="1_hrjpp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bod1q3ibcmp1a" path="res://assets/brick-4956032_1280.jpg" id="2_pk53s"]
 [ext_resource type="PackedScene" uid="uid://b350tl00c4f2w" path="res://scenes/knight.tscn" id="4_tktlv"]
 [ext_resource type="PackedScene" uid="uid://b7gc6l44qv5ep" path="res://scenes/skeleton.tscn" id="7_4hihk"]
+[ext_resource type="Texture2D" uid="uid://bg64lfk6l2yy0" path="res://assets/ecs179_UI_test.png" id="7_e3ojl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtqs3"]
 texture = ExtResource("2_nckn2")
@@ -104,7 +105,12 @@ movement_speed = 3000.0
 target = NodePath("../Knight")
 
 [node name="Skeleton3" parent="Board" node_paths=PackedStringArray("target") instance=ExtResource("7_4hihk")]
-position = Vector2(681, 278)
+position = Vector2(681, 280)
 scale = Vector2(0.35, 0.35)
 movement_speed = 3000.0
 target = NodePath("../Knight")
+
+[node name="UI_test" type="Sprite2D" parent="."]
+position = Vector2(601, 371)
+scale = Vector2(1.18889, 1.18889)
+texture = ExtResource("7_e3ojl")
