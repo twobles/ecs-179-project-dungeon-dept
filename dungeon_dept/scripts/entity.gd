@@ -65,7 +65,7 @@ func _ready() -> void:
 	
 	calc_timer.timeout.connect(_on_timer_timeout)
 	navigation_agent_2d.path_desired_distance = 4.0
-	navigation_agent_2d.target_desired_distance = 4.0
+	navigation_agent_2d.target_desired_distance = 50.0
 	call_deferred("actor_setup")
 
 

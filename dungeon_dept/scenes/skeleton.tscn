@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7gc6l44qv5ep"]
 
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_eml38"]
-[ext_resource type="Texture2D" uid="uid://bdu1hl187ct3w" path="res://assets/skeleton_sheet2.png" id="2_5cc6m"]
+[ext_resource type="Texture2D" uid="uid://kni3msmrq54c" path="res://assets/skeleton_sheet3.png" id="2_hvyhe"]
 
 [sub_resource type="Animation" id="Animation_4aadm"]
 length = 0.001
@@ -41,10 +41,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.21875, 0.3125, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.125, 0.21875, 0.3125, 0.375, 0.46875, 0.5625, 0.71875, 0.84375, 0.9375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [7, 8, 9, 10, 11, 12, 13, 14, 15]
+"values": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 }
 
 [sub_resource type="Animation" id="Animation_0yqbt"]
@@ -58,10 +58,10 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.28125, 0.4375, 0.59375, 0.75, 0.90625),
+"times": PackedFloat32Array(0, 0.125, 0.28125, 0.4375, 0.59375, 0.75, 0.875),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(0, 1), Vector2i(2, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mwfj3"]
@@ -81,9 +81,9 @@ radius = 101.02
 script = ExtResource("1_eml38")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_5cc6m")
+texture = ExtResource("2_hvyhe")
 offset = Vector2(0, 40)
-hframes = 4
+hframes = 5
 vframes = 4
 frame = 7
 

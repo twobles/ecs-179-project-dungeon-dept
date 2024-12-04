@@ -44,7 +44,6 @@ autostart = true
 
 [node name="SpacerRange" type="Area2D" parent="."]
 position = Vector2(-8.57153, 8.57141)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacerRange"]
 position = Vector2(0, 58)
