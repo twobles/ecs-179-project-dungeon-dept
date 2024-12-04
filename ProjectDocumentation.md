@@ -2,14 +2,14 @@
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
+It’s another beautiful day of work at the Department of Dungeon Design! It’s always been your dream to work as a dungeon master and after all these years you know it’s time: you deserve a raise. Set up your defenses, rally the monsters, prime the traps! Meet your quota by slaying adventurers with your dungeon design, and maybe you’ll get the promotion of your dreams! Your paycheck comes out of that treasure you’re guarding, so you better not let any pesky adventurers through.
 
 ## Project Resources
 
-[Web-playable version of your game](https://itch.io/)  
-[Trailer](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
-[Initial Plan](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
+[Web-playable version of your game (FIXME)](https://itch.io/)  
+[Trailer (FIXME)](https://youtube.com)  
+[Press Kit (FIXME)](https://dopresskit.com/)  
+[Initial Plan](https://docs.google.com/document/d/1seP3CGc7eH109oYLATlTatLcgkJYDgn-x0SzhATfhZY/edit?usp=sharing)  
 
 ## Gameplay Explanation ##
 
