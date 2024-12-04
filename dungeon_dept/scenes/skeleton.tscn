@@ -1,7 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7gc6l44qv5ep"]
+[gd_scene load_steps=11 format=3 uid="uid://b7gc6l44qv5ep"]
 
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_eml38"]
 [ext_resource type="Texture2D" uid="uid://kni3msmrq54c" path="res://assets/skeleton_sheet3.png" id="2_hvyhe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2aai"]
+radius = 47.0
+height = 130.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plj5v"]
+size = Vector2(100, 205.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njxbq"]
+size = Vector2(178.75, 103)
 
 [sub_resource type="Animation" id="Animation_4aadm"]
 length = 0.001
@@ -32,7 +42,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/2/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -61,7 +71,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -99,14 +109,25 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_qqfqd"]
 radius = 101.02
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_njxbq"]
-size = Vector2(178.75, 103)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_whq2n"]
-size = Vector2(69.0001, 112.714)
-
 [node name="Skeleton" type="CharacterBody2D"]
 script = ExtResource("1_eml38")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(72, 106)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("CapsuleShape2D_e2aai")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(63, 45)
+shape = SubResource("RectangleShape2D_plj5v")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-48.625, 44.5)
+shape = SubResource("RectangleShape2D_njxbq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hvyhe")
@@ -137,19 +158,6 @@ shape = SubResource("CircleShape2D_qqfqd")
 
 [node name="Spacer" type="Node2D" parent="."]
 position = Vector2(73, 47)
-
-[node name="HurtBox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-48.625, 44.5)
-shape = SubResource("RectangleShape2D_njxbq")
-
-[node name="HitBox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(72, 100)
-scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_whq2n")
 
 [connection signal="body_entered" from="spacer_radius" to="." method="_on_spacer_radius_body_entered"]
 [connection signal="body_exited" from="spacer_radius" to="." method="_on_spacer_radius_body_exited"]
