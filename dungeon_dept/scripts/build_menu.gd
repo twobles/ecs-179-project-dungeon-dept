@@ -15,16 +15,18 @@ var skeleton_icon_instance:CharacterBody2D = null  # Reference to the currently 
 @onready var boundary = $Boundary
 
 var is_dragging:bool = false  # Track if the icon is being dragged
-var is_inside_boundary:bool = false # Track if icon is inside boundary
+var is_inside_boundary:bool # Track if icon is inside boundary
+var is_ready:bool = false # Track if ready has been pressed
 
 
 func _on_button_pressed() -> void:
 	ui_test.hide()
 	ready_button.hide()
+	is_ready = true
 	
 	
 func _input(event):
-	if event.is_action_pressed("skeleton_select") and skeleton_icon_instance == null:  
+	if is_ready == false and event.is_action_pressed("skeleton_select") and skeleton_icon_instance == null:  
 		_remove_current_icon()
 		var mouse_position = get_global_mouse_position()
 		skeleton_icon_instance = skeleton_icon_scene.instantiate() as CharacterBody2D
@@ -61,9 +63,8 @@ func _process(delta):
 #	if is_dragging and second_icon_instance != null:
 #		second_icon_instance.position = get_global_mouse_position()
 
-
+# Function to remove icon when switching 
 func _remove_current_icon():
-	# Remove the currently active icon if it exists
 	if skeleton_icon_instance != null:
 		skeleton_icon_instance.queue_free()
 		skeleton_icon_instance = null
