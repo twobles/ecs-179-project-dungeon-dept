@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c52pdhxhweo3v"]
+[gd_scene load_steps=15 format=4 uid="uid://c52pdhxhweo3v"]
 
 [ext_resource type="PackedScene" uid="uid://dn4aletp71tvk" path="res://scenes/background.tscn" id="1_c647s"]
 [ext_resource type="PackedScene" uid="uid://0bs0pte8web4" path="res://scenes/board.tscn" id="1_hrjpp"]
@@ -107,6 +107,12 @@ vertices = PackedVector2Array(578.063, 578, 58.0938, 578, 62.8984, 64.9609, 580.
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(53, 55, 591, 53, 588, 588, 48, 588)])
 
+[sub_resource type="Theme" id="Theme_uouro"]
+default_font_size = 25
+
+[sub_resource type="Theme" id="Theme_1dpy0"]
+default_font_size = 25
+
 [node name="Dungeon" type="Node"]
 
 [node name="Background" parent="." instance=ExtResource("1_c647s")]
@@ -162,6 +168,7 @@ offset_left = 35.0
 offset_top = 552.0
 offset_right = 228.0
 offset_bottom = 665.0
+theme = SubResource("Theme_uouro")
 text = "READY"
 
 [node name="Boundary" type="ColorRect" parent="BuildMenu"]
@@ -170,6 +177,16 @@ offset_top = 128.0
 offset_right = 833.0
 offset_bottom = 640.0
 color = Color(1, 1, 1, 0)
+
+[node name="Capacity" type="Label" parent="BuildMenu"]
+offset_left = 35.0
+offset_top = 452.0
+offset_right = 228.0
+offset_bottom = 544.0
+theme = SubResource("Theme_1dpy0")
+text = "CAPACITY: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="BuildMenu/ReadyButton" to="BuildMenu" method="_on_button_pressed"]
 [connection signal="mouse_entered" from="BuildMenu/Boundary" to="BuildMenu" method="_on_boundary_mouse_entered"]

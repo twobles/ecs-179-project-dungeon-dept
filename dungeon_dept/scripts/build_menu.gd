@@ -13,15 +13,19 @@ var skeleton_icon_instance:CharacterBody2D = null  # Reference to the currently 
 @onready var ui_test = $UI_test
 @onready var ready_button = $ReadyButton
 @onready var boundary = $Boundary
+@onready var capacity = $Capacity
 
 var is_dragging:bool = false  # Track if the icon is being dragged
 var is_inside_boundary:bool # Track if icon is inside boundary
 var is_ready:bool = false # Track if ready has been pressed
+var is_skeleton:bool = false # Track if last selected monster is skeleton
+#var is_second:bool = false # Track if last selected monster is second
 
 
 func _on_button_pressed() -> void:
 	ui_test.hide()
 	ready_button.hide()
+	capacity.hide()
 	is_ready = true
 	
 	
@@ -35,6 +39,8 @@ func _input(event):
 		skeleton_icon_instance.position = mouse_position
 		add_child(skeleton_icon_instance)
 		is_dragging = true
+		is_skeleton = true
+#		is_second = false
 		
 #	if event.is_action_pressed("second_select") and second_icon_instance == null:
 #		_remove_current_icon()		
@@ -45,6 +51,8 @@ func _input(event):
 #		second_icon_instance.position = mouse_position
 #		add_child(second_icon_instance)
 #		is_dragging = true
+#		is_skeleton = false
+#		is_second = true
 	
 	
 	# Drop the icon when the left mouse button is pressed
@@ -52,12 +60,21 @@ func _input(event):
 		if is_inside_boundary == false:
 			return
 		else:
+			if is_skeleton:
+				if Autoscript.capacity - 6 < 0: # Capacity cap
+					return
+				Autoscript.capacity -= 6
+#			elif is_second:
+#				if Autoscript.capacity - 10 < 0:
+#					return
+#				Autoscript.capacity -= 10
 			is_dragging = false
 			skeleton_icon_instance = null
 #			second_icon_instance = null
 	
 	
 func _process(delta):
+	capacity.text = "Capacity: " + str(Autoscript.capacity)
 	if is_dragging and skeleton_icon_instance != null:
 		skeleton_icon_instance.position = get_global_mouse_position()
 #	if is_dragging and second_icon_instance != null:
