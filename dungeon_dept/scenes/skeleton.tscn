@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7gc6l44qv5ep"]
+[gd_scene load_steps=10 format=3 uid="uid://b7gc6l44qv5ep"]
 
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_eml38"]
 [ext_resource type="Texture2D" uid="uid://kni3msmrq54c" path="res://assets/skeleton_sheet3.png" id="2_hvyhe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2aai"]
-radius = 47.0
-height = 130.0
+radius = 32.0
+height = 194.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plj5v"]
 size = Vector2(100, 205.5)
@@ -106,24 +106,24 @@ _data = {
 "walking": SubResource("Animation_0yqbt")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qqfqd"]
-radius = 101.02
-
 [node name="Skeleton" type="CharacterBody2D"]
+position = Vector2(-63, -45)
 script = ExtResource("1_eml38")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(72, 106)
+position = Vector2(58, 26)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("CapsuleShape2D_e2aai")
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(63, 45)
 shape = SubResource("RectangleShape2D_plj5v")
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-48.625, 44.5)
@@ -142,22 +142,10 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 40.0
 debug_enabled = true
 
 [node name="calcTimer" type="Timer" parent="."]
+wait_time = 0.147
 autostart = true
-
-[node name="spacer_radius" type="Area2D" parent="."]
-position = Vector2(73, 47)
-collision_layer = 7
-collision_mask = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="spacer_radius"]
-position = Vector2(0, 58)
-shape = SubResource("CircleShape2D_qqfqd")
-
-[node name="Spacer" type="Node2D" parent="."]
-position = Vector2(73, 47)
-
-[connection signal="body_entered" from="spacer_radius" to="." method="_on_spacer_radius_body_entered"]
-[connection signal="body_exited" from="spacer_radius" to="." method="_on_spacer_radius_body_exited"]

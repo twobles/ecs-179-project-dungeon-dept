@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b350tl00c4f2w"]
+[gd_scene load_steps=6 format=3 uid="uid://b350tl00c4f2w"]
 
 [ext_resource type="Script" path="res://scripts/knight.gd" id="1_s5a57"]
 [ext_resource type="Texture2D" uid="uid://e7wsys325ouf" path="res://assets/knight.png" id="2_gxehw"]
@@ -12,13 +12,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whq2n"]
-size = Vector2(69.0001, 112.714)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qqfqd"]
-radius = 91.6788
+size = Vector2(74.3928, 168.572)
 
 [node name="Knight" type="CharacterBody2D"]
-position = Vector2(788, 300)
+position = Vector2(1.00006, -5.99997)
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_s5a57")
 
@@ -32,7 +29,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8.57136, 68.5714)
+position = Vector2(-5.66095, 4.28562)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_whq2n")
 
@@ -41,13 +38,3 @@ debug_enabled = true
 
 [node name="calcTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="SpacerRange" type="Area2D" parent="."]
-position = Vector2(-8.57153, 8.57141)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpacerRange"]
-position = Vector2(0, 58)
-shape = SubResource("CircleShape2D_qqfqd")
-
-[node name="Spacer" type="Node2D" parent="."]
-position = Vector2(5.71429, 8.57143)

@@ -14,7 +14,7 @@ enum AttackType {
 }
 
 
-const DEFAULT_MOVE_VELOCITY: float = 3000.0
+const DEFAULT_MOVE_VELOCITY: float = 100.0
 
 
 @export var health: float = 100.0
@@ -56,12 +56,21 @@ func _ready() -> void:
 	change_facing(facing)
 	
 	calc_timer.timeout.connect(_on_timer_timeout)
+	navigation_agent_2d.velocity_computed.connect(_on_navigation_agent_velocity_computed)
 	
 	navigation_agent_2d.path_desired_distance = 4.0
 	navigation_agent_2d.target_desired_distance = 50.0
 	
 	call_deferred("actor_setup")
 
+func _physics_process(delta: float) -> void:
+	
+	# assume target is not null
+	navigate_to_target()
+	
+func _on_navigation_agent_velocity_computed(safe_velocity):
+	velocity = safe_velocity
+	move_and_slide()
 
 func actor_setup() -> void:
 	if target != null:
@@ -70,34 +79,25 @@ func actor_setup() -> void:
 	else:
 		print("Target is not set!")
 		return
-	
 
 func set_target_position(target_pos: Vector2) -> void:
 	#print("target_pos: ", target_pos)
 	navigation_agent_2d.target_position = target_pos
 
-func navigate_to_target() -> Vector2:
+func navigate_to_target():
 	if navigation_agent_2d.is_navigation_finished():
-		return Vector2(0, 0)
+		return
 		
 	var cur_pos = global_position
 	var next_pos = navigation_agent_2d.get_next_path_position()
 	
 	var direction = cur_pos.direction_to(next_pos)
-		
-	return direction * movement_speed
-
-func _physics_process(delta: float) -> void:
+	navigation_agent_2d.set_velocity(direction * movement_speed)
 	
-	# assume target is not null
-	velocity = navigate_to_target() * delta
-
-	_apply_movement(delta)
-
+	
 func _apply_movement(_delta: float):
 	move_and_slide()
-	#print(velocity.length())
-	#print(velocity.length() > 5.0)
+	
 	if velocity.length() > 5.0:
 		animations.play("walking")
 	else:
