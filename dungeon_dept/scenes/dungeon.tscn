@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c52pdhxhweo3v"]
+[gd_scene load_steps=19 format=4 uid="uid://c52pdhxhweo3v"]
 
 [ext_resource type="Script" path="res://scripts/dungeon.gd" id="1_6pocy"]
 [ext_resource type="PackedScene" uid="uid://dn4aletp71tvk" path="res://scenes/background.tscn" id="1_c647s"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bg64lfk6l2yy0" path="res://assets/ecs179_UI_test.png" id="7_e3ojl"]
 [ext_resource type="Script" path="res://scripts/battle_scene.gd" id="9_oor12"]
 [ext_resource type="Script" path="res://scripts/build_menu.gd" id="9_r383d"]
+[ext_resource type="Texture2D" uid="uid://bsxlbk85o04as" path="res://assets/skeleton2.png" id="10_nv1gc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtqs3"]
 texture = ExtResource("2_nckn2")
@@ -115,6 +116,9 @@ default_font_size = 25
 [sub_resource type="Theme" id="Theme_1dpy0"]
 default_font_size = 25
 
+[sub_resource type="Theme" id="Theme_w3rrv"]
+default_font_size = 41
+
 [node name="Dungeon" type="Node"]
 script = ExtResource("1_6pocy")
 
@@ -188,6 +192,34 @@ offset_right = 228.0
 offset_bottom = 544.0
 theme = SubResource("Theme_1dpy0")
 text = "CAPACITY: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkeletonIcon" type="Sprite2D" parent="BuildMenu"]
+position = Vector2(134, 245)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_nv1gc")
+
+[node name="SkeletonInfo" type="Label" parent="BuildMenu"]
+offset_left = -1.0
+offset_top = 356.0
+offset_right = 260.0
+offset_bottom = 505.0
+theme = SubResource("Theme_w3rrv")
+theme_override_font_sizes/font_size = 20
+text = "Area: 2X2
+Load: 5
+HP: 20
+ATK: 5"
+horizontal_alignment = 1
+
+[node name="SkeletonName" type="Label" parent="BuildMenu"]
+offset_left = 3.0
+offset_top = 67.0
+offset_right = 252.0
+offset_bottom = 180.0
+theme = SubResource("Theme_w3rrv")
+text = "SKELETON"
 horizontal_alignment = 1
 vertical_alignment = 1
 
