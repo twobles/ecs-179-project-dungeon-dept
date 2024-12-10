@@ -30,14 +30,6 @@ const DEFAULT_MOVE_VELOCITY: float = 3000.0
 @onready var calc_timer: Timer = $calcTimer
 @onready var animations = $AnimationPlayer
 
-var _local_entities = []
-
-#var right_cmd : Command
-#var left_cmd : Command
-#var up_cmd : Command
-#var fire1 : Command
-#var fire2 : Command
-#var idle : Command
 
 var facing:Facing = Facing.RIGHT
 
@@ -94,15 +86,8 @@ func _physics_process(delta: float) -> void:
 	var direction = cur_pos.direction_to(next_pos)
 	
 	var separation = Vector2()
-	for entity in _local_entities:
-		var direction_away = cur_pos - entity.position
-		var distance = cur_pos.distance_to(entity.position)
-		if distance < space:
-			separation += direction_away.normalized() / distance
 			
 	velocity = direction * movement_speed * delta
-	if not _local_entities.is_empty():
-		velocity += separation.normalized() * movement_speed * 0.8 * delta
 	
 	#print("locals: ", _local_entities)
 	#print("velocity: ", velocity)
@@ -137,17 +122,3 @@ func _on_timer_timeout() -> void:
 		set_target_position(target.position)
 	else:
 		return
-
-
-func _on_spacer_radius_body_entered(body: Node2D) -> void:
-	if body == self:
-		return
-	print("self: ", is_instance_of(self, Monster))
-	print("other: ", body is Monster)
-	if is_instance_of(self, Monster) and body is Monster:
-		_local_entities.push_back(body)
-		print("entered: ", _local_entities)
-
-
-func _on_spacer_radius_body_exited(body: Node2D) -> void:
-	_local_entities.erase(body)

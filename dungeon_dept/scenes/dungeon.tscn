@@ -136,7 +136,6 @@ script = ExtResource("6_ichww")
 
 [node name="Knight" parent="Board" groups=["adventurers"] instance=ExtResource("4_tktlv")]
 position = Vector2(581, 379)
-target = NodePath("")
 
 [node name="BuildMenu" type="Node2D" parent="Board"]
 script = ExtResource("9_r383d")
