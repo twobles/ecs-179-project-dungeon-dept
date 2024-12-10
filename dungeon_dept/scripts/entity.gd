@@ -56,8 +56,10 @@ func _ready() -> void:
 	change_facing(facing)
 	
 	calc_timer.timeout.connect(_on_timer_timeout)
+	
 	navigation_agent_2d.path_desired_distance = 4.0
 	navigation_agent_2d.target_desired_distance = 50.0
+	
 	call_deferred("actor_setup")
 
 
@@ -74,25 +76,23 @@ func set_target_position(target_pos: Vector2) -> void:
 	#print("target_pos: ", target_pos)
 	navigation_agent_2d.target_position = target_pos
 
-
-func _physics_process(delta: float) -> void: 
+func navigate_to_target() -> Vector2:
 	if navigation_agent_2d.is_navigation_finished():
-		#print("finished")
-		return
+		return Vector2(0, 0)
 		
 	var cur_pos = global_position
 	var next_pos = navigation_agent_2d.get_next_path_position()
 	
 	var direction = cur_pos.direction_to(next_pos)
+		
+	return direction * movement_speed
+
+func _physics_process(delta: float) -> void:
 	
-	var separation = Vector2()
-			
-	velocity = direction * movement_speed * delta
-	
-	#print("locals: ", _local_entities)
-	#print("velocity: ", velocity)
+	# assume target is not null
+	velocity = navigate_to_target() * delta
+
 	_apply_movement(delta)
-	#move_and_slide()
 
 func _apply_movement(_delta: float):
 	move_and_slide()
