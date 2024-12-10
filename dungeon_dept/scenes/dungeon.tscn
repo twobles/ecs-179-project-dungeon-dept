@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://c52pdhxhweo3v"]
+[gd_scene load_steps=17 format=4 uid="uid://c52pdhxhweo3v"]
 
+[ext_resource type="Script" path="res://scripts/dungeon.gd" id="1_6pocy"]
 [ext_resource type="PackedScene" uid="uid://dn4aletp71tvk" path="res://scenes/background.tscn" id="1_c647s"]
 [ext_resource type="PackedScene" uid="uid://0bs0pte8web4" path="res://scenes/board.tscn" id="1_hrjpp"]
 [ext_resource type="Texture2D" uid="uid://10psr2qk7bpd" path="res://assets/64x64_dungeon_sheet.png" id="2_nckn2"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b350tl00c4f2w" path="res://scenes/knight.tscn" id="4_tktlv"]
 [ext_resource type="PackedScene" uid="uid://b7gc6l44qv5ep" path="res://scenes/skeleton.tscn" id="7_4hihk"]
 [ext_resource type="Texture2D" uid="uid://bg64lfk6l2yy0" path="res://assets/ecs179_UI_test.png" id="7_e3ojl"]
+[ext_resource type="Script" path="res://scripts/battle_scene.gd" id="9_oor12"]
 [ext_resource type="Script" path="res://scripts/build_menu.gd" id="9_r383d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtqs3"]
@@ -114,6 +116,7 @@ default_font_size = 25
 default_font_size = 25
 
 [node name="Dungeon" type="Node"]
+script = ExtResource("1_6pocy")
 
 [node name="Background" parent="." instance=ExtResource("1_c647s")]
 position = Vector2(575.381, 382.52)
@@ -188,6 +191,18 @@ text = "CAPACITY: 100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="BattleScene" type="Node2D" parent="."]
+script = ExtResource("9_oor12")
+
+[node name="Money" type="Label" parent="BattleScene"]
+offset_left = 916.0
+offset_top = 65.0
+offset_right = 1130.0
+offset_bottom = 211.0
+theme_override_font_sizes/font_size = 35
+horizontal_alignment = 1
+
+[connection signal="pressed" from="BuildMenu/ReadyButton" to="." method="_on_ready_button_pressed"]
 [connection signal="pressed" from="BuildMenu/ReadyButton" to="BuildMenu" method="_on_button_pressed"]
 [connection signal="mouse_entered" from="BuildMenu/Boundary" to="BuildMenu" method="_on_boundary_mouse_entered"]
 [connection signal="mouse_exited" from="BuildMenu/Boundary" to="BuildMenu" method="_on_boundary_mouse_exited"]
