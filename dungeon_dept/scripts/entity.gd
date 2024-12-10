@@ -14,7 +14,7 @@ enum AttackType {
 }
 
 
-const DEFAULT_MOVE_VELOCITY: float = 300.0
+const DEFAULT_MOVE_VELOCITY: float = 3000.0
 
 
 @export var health: float = 100.0

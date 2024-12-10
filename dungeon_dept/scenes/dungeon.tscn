@@ -131,39 +131,34 @@ tile_set = SubResource("TileSet_66kpu")
 position = Vector2(255, 65)
 navigation_polygon = SubResource("NavigationPolygon_xlcvp")
 
-[node name="Knight" parent="Board" node_paths=PackedStringArray("target") instance=ExtResource("4_tktlv")]
-position = Vector2(366, 369)
-movement_speed = 2000.0
+[node name="Knight" parent="Board" node_paths=PackedStringArray("target") groups=["adventurers"] instance=ExtResource("4_tktlv")]
+position = Vector2(387, 383)
 target = NodePath("../Skeleton")
 
-[node name="Skeleton" parent="Board" node_paths=PackedStringArray("target") instance=ExtResource("7_4hihk")]
-position = Vector2(747, 243)
+[node name="Skeleton" parent="Board" node_paths=PackedStringArray("target") groups=["monsters"] instance=ExtResource("7_4hihk")]
+position = Vector2(637, 188)
 scale = Vector2(0.35, 0.35)
-movement_speed = 4000.0
 target = NodePath("../Knight")
 
-[node name="Skeleton2" parent="Board" node_paths=PackedStringArray("target") instance=ExtResource("7_4hihk")]
-position = Vector2(744, 320)
+[node name="Skeleton2" parent="Board" node_paths=PackedStringArray("target") groups=["monsters"] instance=ExtResource("7_4hihk")]
+position = Vector2(696, 357)
 scale = Vector2(0.35, 0.35)
-movement_speed = 3000.0
 target = NodePath("../Knight")
 
-[node name="Skeleton3" parent="Board" node_paths=PackedStringArray("target") instance=ExtResource("7_4hihk")]
-position = Vector2(681, 280)
+[node name="Skeleton3" parent="Board" node_paths=PackedStringArray("target") groups=["monsters"] instance=ExtResource("7_4hihk")]
+position = Vector2(653, 536)
 scale = Vector2(0.35, 0.35)
-movement_speed = 3000.0
 target = NodePath("../Knight")
 
-[node name="BuildMenu" type="Node2D" parent="."]
+[node name="BuildMenu" type="Node2D" parent="Board"]
 script = ExtResource("9_r383d")
-skeleton_icon_scene = ExtResource("7_4hihk")
 
-[node name="UI_test" type="Sprite2D" parent="BuildMenu"]
-position = Vector2(601, 371)
-scale = Vector2(1.18889, 1.18889)
+[node name="UI_test" type="Sprite2D" parent="Board/BuildMenu"]
+position = Vector2(628, 375)
+scale = Vector2(1.05399, 1.14722)
 texture = ExtResource("7_e3ojl")
 
-[node name="ReadyButton" type="Button" parent="BuildMenu"]
+[node name="ReadyButton" type="Button" parent="Board/BuildMenu"]
 offset_left = 35.0
 offset_top = 552.0
 offset_right = 228.0
@@ -171,14 +166,14 @@ offset_bottom = 665.0
 theme = SubResource("Theme_uouro")
 text = "READY"
 
-[node name="Boundary" type="ColorRect" parent="BuildMenu"]
+[node name="Boundary" type="ColorRect" parent="Board/BuildMenu"]
 offset_left = 321.0
 offset_top = 128.0
 offset_right = 833.0
 offset_bottom = 640.0
 color = Color(1, 1, 1, 0)
 
-[node name="Capacity" type="Label" parent="BuildMenu"]
+[node name="Capacity" type="Label" parent="Board/BuildMenu"]
 offset_left = 35.0
 offset_top = 452.0
 offset_right = 228.0
@@ -188,6 +183,6 @@ text = "CAPACITY: 100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="BuildMenu/ReadyButton" to="BuildMenu" method="_on_button_pressed"]
-[connection signal="mouse_entered" from="BuildMenu/Boundary" to="BuildMenu" method="_on_boundary_mouse_entered"]
-[connection signal="mouse_exited" from="BuildMenu/Boundary" to="BuildMenu" method="_on_boundary_mouse_exited"]
+[connection signal="pressed" from="Board/BuildMenu/ReadyButton" to="Board/BuildMenu" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Board/BuildMenu/Boundary" to="Board/BuildMenu" method="_on_boundary_mouse_entered"]
+[connection signal="mouse_exited" from="Board/BuildMenu/Boundary" to="Board/BuildMenu" method="_on_boundary_mouse_exited"]

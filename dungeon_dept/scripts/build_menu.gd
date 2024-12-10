@@ -3,11 +3,6 @@ extends Node2D
 
 # REPLACE SECOND_ICON_SCENE AND SECOND_ICON_INSTANCE WITH SECOND MONSTER
 # ALSO CAN ADD THIRD MONSTER WITH SAME LOGIC
-
-@export var skeleton_icon_scene:PackedScene  # Preload the Skeleton Icon scene
-#@export var second_icon_scene:PackedScene  # Preload the Skeleton Icon scene
-
-var skeleton_icon_instance:CharacterBody2D = null  # Reference to the currently spawned icon
 #var second_icon_instance:CharacterBody2D = null 
 
 @onready var ui_test = $UI_test
@@ -15,11 +10,14 @@ var skeleton_icon_instance:CharacterBody2D = null  # Reference to the currently 
 @onready var boundary = $Boundary
 @onready var capacity = $Capacity
 
-var is_dragging:bool = false  # Track if the icon is being dragged
-var is_inside_boundary:bool # Track if icon is inside boundary
-var is_ready:bool = false # Track if ready has been pressed
-var is_skeleton:bool = false # Track if last selected monster is skeleton
+var is_dragging: bool = false  # Track if the icon is being dragged
+var is_inside_boundary: bool # Track if icon is inside boundary
+var is_ready: bool = false # Track if ready has been pressed
+var is_skeleton: bool = false # Track if last selected monster is skeleton
 #var is_second:bool = false # Track if last selected monster is second
+
+var monster_icon: Sprite2D = null  # Reference to the currently spawned icon
+var monster_factory := MonsterFactory.new()
 
 
 func _on_button_pressed() -> void:
@@ -30,14 +28,15 @@ func _on_button_pressed() -> void:
 	
 	
 func _input(event):
-	if is_ready == false and event.is_action_pressed("skeleton_select") and skeleton_icon_instance == null:  
+	if is_ready == false and event.is_action_pressed("skeleton_select") and monster_icon == null:  
 		_remove_current_icon()
 		var mouse_position = get_global_mouse_position()
-		skeleton_icon_instance = skeleton_icon_scene.instantiate() as CharacterBody2D
-		skeleton_icon_instance.scale = Vector2(0.35, 0.35)
+		monster_icon = Sprite2D.new()
+		monster_icon.texture = load("res://assets/skeleton2.png")
+		monster_icon.scale = Vector2(0.35, 0.35)
 		
-		skeleton_icon_instance.position = mouse_position
-		add_child(skeleton_icon_instance)
+		monster_icon.position = mouse_position
+		add_child(monster_icon)
 		is_dragging = true
 		is_skeleton = true
 #		is_second = false
@@ -63,28 +62,36 @@ func _input(event):
 			if is_skeleton:
 				if Autoscript.capacity - 6 < 0: # Capacity cap
 					return
+				var monster_instance := monster_factory.spawn(MonsterFactory.MonsterType.SKELETON)
+				monster_instance.scale = Vector2(0.35, 0.35)
+				monster_instance.position = get_global_mouse_position()
+				monster_instance.target = get_tree().get_nodes_in_group("adventurers").pick_random()
+				monster_instance.add_to_group("monsters")
+				get_parent().add_child(monster_instance)
 				Autoscript.capacity -= 6
+				_remove_current_icon()
 #			elif is_second:
 #				if Autoscript.capacity - 10 < 0:
 #					return
 #				Autoscript.capacity -= 10
 			is_dragging = false
-			skeleton_icon_instance = null
+			monster_icon = null
 #			second_icon_instance = null
 	
 	
-func _process(delta):
+func _process(_delta):
 	capacity.text = "Capacity: " + str(Autoscript.capacity)
-	if is_dragging and skeleton_icon_instance != null:
-		skeleton_icon_instance.position = get_global_mouse_position()
+	if is_dragging and monster_icon != null:
+		monster_icon.position = get_global_mouse_position()
 #	if is_dragging and second_icon_instance != null:
 #		second_icon_instance.position = get_global_mouse_position()
 
+
 # Function to remove icon when switching 
 func _remove_current_icon():
-	if skeleton_icon_instance != null:
-		skeleton_icon_instance.queue_free()
-		skeleton_icon_instance = null
+	if monster_icon != null:
+		monster_icon.queue_free()
+		monster_icon = null
 #	if second_icon_instance != null:
 #		second_icon_instance.queue_free()
 #		second_icon_instance = null
