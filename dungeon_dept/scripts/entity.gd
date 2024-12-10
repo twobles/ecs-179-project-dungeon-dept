@@ -22,7 +22,7 @@ const DEFAULT_MOVE_VELOCITY: float = 3000.0
 @export var type: AttackType
 
 @export var movement_speed: float = DEFAULT_MOVE_VELOCITY
-@export var target: CharacterBody2D
+@export var target: Entity
 @export var space: float = 50.0
 @export var separation_force: float = 500.0
 

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://10psr2qk7bpd" path="res://assets/64x64_dungeon_sheet.png" id="2_nckn2"]
 [ext_resource type="Texture2D" uid="uid://bod1q3ibcmp1a" path="res://assets/brick-4956032_1280.jpg" id="2_pk53s"]
 [ext_resource type="PackedScene" uid="uid://b350tl00c4f2w" path="res://scenes/knight.tscn" id="4_tktlv"]
-[ext_resource type="PackedScene" uid="uid://b7gc6l44qv5ep" path="res://scenes/skeleton.tscn" id="7_4hihk"]
+[ext_resource type="Script" path="res://scripts/entity_manager.gd" id="6_ichww"]
 [ext_resource type="Texture2D" uid="uid://bg64lfk6l2yy0" path="res://assets/ecs179_UI_test.png" id="7_e3ojl"]
 [ext_resource type="Script" path="res://scripts/build_menu.gd" id="9_r383d"]
 
@@ -131,24 +131,12 @@ tile_set = SubResource("TileSet_66kpu")
 position = Vector2(255, 65)
 navigation_polygon = SubResource("NavigationPolygon_xlcvp")
 
-[node name="Knight" parent="Board" node_paths=PackedStringArray("target") groups=["adventurers"] instance=ExtResource("4_tktlv")]
-position = Vector2(387, 383)
-target = NodePath("../Skeleton")
+[node name="EntityManager" type="Node" parent="Board"]
+script = ExtResource("6_ichww")
 
-[node name="Skeleton" parent="Board" node_paths=PackedStringArray("target") groups=["monsters"] instance=ExtResource("7_4hihk")]
-position = Vector2(637, 188)
-scale = Vector2(0.35, 0.35)
-target = NodePath("../Knight")
-
-[node name="Skeleton2" parent="Board" node_paths=PackedStringArray("target") groups=["monsters"] instance=ExtResource("7_4hihk")]
-position = Vector2(696, 357)
-scale = Vector2(0.35, 0.35)
-target = NodePath("../Knight")
-
-[node name="Skeleton3" parent="Board" node_paths=PackedStringArray("target") groups=["monsters"] instance=ExtResource("7_4hihk")]
-position = Vector2(653, 536)
-scale = Vector2(0.35, 0.35)
-target = NodePath("../Knight")
+[node name="Knight" parent="Board" groups=["adventurers"] instance=ExtResource("4_tktlv")]
+position = Vector2(581, 379)
+target = NodePath("")
 
 [node name="BuildMenu" type="Node2D" parent="Board"]
 script = ExtResource("9_r383d")

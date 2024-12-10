@@ -9,6 +9,7 @@ extends Node2D
 @onready var ready_button = $ReadyButton
 @onready var boundary = $Boundary
 @onready var capacity = $Capacity
+@onready var entity_manager := $"../EntityManager"
 
 #@onready var skeleton_icon = $SkeletonIcon
 #@onready var skeleton_info = $SkeletonInfo
@@ -31,6 +32,7 @@ func _on_button_pressed() -> void:
 	ready_button.hide()
 	capacity.hide()
 	boundary.hide()
+	entity_manager.assign_targets()
 	
 	
 	
@@ -73,8 +75,8 @@ func _input(event):
 				var monster_instance := monster_factory.spawn(MonsterFactory.MonsterType.SKELETON)
 				monster_instance.scale = Vector2(0.35, 0.35)
 				monster_instance.position = get_global_mouse_position()
-				monster_instance.target = get_tree().get_nodes_in_group("adventurers").pick_random()
 				monster_instance.add_to_group("monsters")
+				entity_manager.monsters.push_back(monster_instance)
 				get_parent().add_child(monster_instance)
 				Autoscript.capacity -= 6
 				_remove_current_icon()
