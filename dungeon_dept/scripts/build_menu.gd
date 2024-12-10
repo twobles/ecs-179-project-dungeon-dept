@@ -10,9 +10,9 @@ extends Node2D
 @onready var boundary = $Boundary
 @onready var capacity = $Capacity
 
-@onready var skeleton_icon = $SkeletonIcon
-@onready var skeleton_info = $SkeletonInfo
-@onready var skeleton_name = $SkeletonName
+#@onready var skeleton_icon = $SkeletonIcon
+#@onready var skeleton_info = $SkeletonInfo
+#@onready var skeleton_name = $SkeletonName
 
 var is_dragging: bool = false  # Track if the icon is being dragged
 var is_inside_boundary: bool # Track if icon is inside boundary
