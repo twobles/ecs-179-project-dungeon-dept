@@ -10,21 +10,28 @@ extends Node2D
 @onready var boundary = $Boundary
 @onready var capacity = $Capacity
 
+@onready var skeleton_icon = $SkeletonIcon
+@onready var skeleton_info = $SkeletonInfo
+@onready var skeleton_name = $SkeletonName
+
 var is_dragging: bool = false  # Track if the icon is being dragged
 var is_inside_boundary: bool # Track if icon is inside boundary
 var is_ready: bool = false # Track if ready has been pressed
 var is_skeleton: bool = false # Track if last selected monster is skeleton
 #var is_second:bool = false # Track if last selected monster is second
 
+
 var monster_icon: Sprite2D = null  # Reference to the currently spawned icon
 var monster_factory := MonsterFactory.new()
 
-
+		
 func _on_button_pressed() -> void:
+	is_ready = true
 	ui_test.hide()
 	ready_button.hide()
 	capacity.hide()
-	is_ready = true
+	boundary.hide()
+	
 	
 	
 func _input(event):
@@ -40,6 +47,7 @@ func _input(event):
 		is_dragging = true
 		is_skeleton = true
 #		is_second = false
+		
 		
 #	if event.is_action_pressed("second_select") and second_icon_instance == null:
 #		_remove_current_icon()		
@@ -74,6 +82,7 @@ func _input(event):
 #				if Autoscript.capacity - 10 < 0:
 #					return
 #				Autoscript.capacity -= 10
+			
 			is_dragging = false
 			monster_icon = null
 #			second_icon_instance = null
