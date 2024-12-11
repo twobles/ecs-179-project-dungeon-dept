@@ -14,7 +14,7 @@ enum AttackType {
 }
 
 
-const DEFAULT_MOVE_VELOCITY: float = 300.0
+const DEFAULT_MOVE_VELOCITY: float = 3000.0
 
 
 @export var health: float = 100.0
@@ -22,7 +22,7 @@ const DEFAULT_MOVE_VELOCITY: float = 300.0
 @export var type: AttackType
 
 @export var movement_speed: float = DEFAULT_MOVE_VELOCITY
-@export var target: CharacterBody2D
+@export var target: Entity
 @export var space: float = 50.0
 @export var separation_force: float = 500.0
 
@@ -70,8 +70,12 @@ func _ready() -> void:
 
 
 func actor_setup() -> void:
-	await get_tree().physics_frame
-	set_target_position(target.position)
+	if target != null:
+		await get_tree().physics_frame
+		set_target_position(target.position)
+	else:
+		print("Target is not set!")
+		return
 	
 
 func set_target_position(target_pos: Vector2) -> void:
@@ -129,7 +133,10 @@ func command_callback(_name:String) -> void:
 	pass
 	
 func _on_timer_timeout() -> void:
-	set_target_position(target.position)
+	if target != null:
+		set_target_position(target.position)
+	else:
+		return
 
 
 func _on_spacer_radius_body_entered(body: Node2D) -> void:
