@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7gc6l44qv5ep"]
+[gd_scene load_steps=12 format=3 uid="uid://b7gc6l44qv5ep"]
 
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_eml38"]
 [ext_resource type="Texture2D" uid="uid://kni3msmrq54c" path="res://assets/skeleton_sheet3.png" id="2_hvyhe"]
+[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="2_jcv4l"]
+[ext_resource type="Script" path="res://scripts/hitbox.gd" id="3_hx8k1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2aai"]
 radius = 32.0
@@ -116,14 +118,14 @@ scale = Vector2(0.999999, 0.999999)
 shape = SubResource("CapsuleShape2D_e2aai")
 
 [node name="HurtBox" type="Area2D" parent="."]
-visible = false
+script = ExtResource("2_jcv4l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(63, 45)
 shape = SubResource("RectangleShape2D_plj5v")
 
 [node name="HitBox" type="Area2D" parent="."]
-visible = false
+script = ExtResource("3_hx8k1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-48.625, 44.5)
