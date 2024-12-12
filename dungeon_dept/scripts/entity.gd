@@ -103,11 +103,10 @@ func set_target_position(target_pos: Vector2) -> void:
 
 
 func _physics_process(delta: float) -> void: 
+	_manage_animation_tree_state()
 	if not enable_navigation:
 		#print("finished")
 		return
-	
-	_manage_animation_tree_state()
 	_navigate(delta)
 	
 
@@ -150,7 +149,6 @@ func toggle_navigation(toggle : bool):
 	if toggle == false:
 		target = null
 		navigation_agent_2d.target_position = global_position
-		animations.stop()
 		#nav_force = Vector3.ZERO
 		#linear_velocity = Vector2.ZERO
 
@@ -206,18 +204,20 @@ func _on_timer_timeout() -> void:
 	#_local_entities.erase(body)
 	
 func _manage_animation_tree_state() -> void:
+	print(animations.is_playing())
 	if attacking:
-		print("attack: ", attacking)
 		#nimation_tree["parameters/conditions/attack"] = true
+		print("attack: ", attacking)
+		print("playing: ",animations.is_playing())
 		animations.play("attack")
 		attacking = false
 		#nimation_tree["parameters/conditions/attack"] = false
 	elif walking:
 		print("walking")
 		animations.play("walking")	
-	else:
-		#animation_tree["parameters/conditions/walking"] = false
-		animations.play("idle")
+	#else:
+		##animation_tree["parameters/conditions/walking"] = false
+		#animations.play("idle")
 	#if _damaged:
 		#animation_tree["parameters/conditions/damaged"] = true
 		#_damaged = false
