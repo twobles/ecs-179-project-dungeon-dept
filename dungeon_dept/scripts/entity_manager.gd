@@ -1,15 +1,37 @@
 class_name EntityManager
 extends Node
 
-var adventurers: Array = []
-var monsters: Array = []
+signal battle_end
+signal in_battle
+
+@export var capacity: int = 100
+
+@onready var capacity_indicator: Label = %Capacity
+
+var monsters: Array[Monster] = []
+var battling: bool = false
 
 
-func assign_targets() -> void:
-	for adventurer in adventurers:
-		if adventurer.target == null:
-			adventurer.target = get_tree().get_nodes_in_group("monsters").pick_random()
+func _process(_delta: float) -> void:
+	capacity_indicator.text = "CAPACITY: " + str(capacity)
 	
+	if battling and monsters.is_empty():
+		emit_signal("battle_end")
+	
+
+func _physics_process(_delta: float) -> void:
+	pass
+	
+	
+func deduct_capacity(cost: int) -> bool:
+	if (capacity - cost >= 0):
+		capacity -= cost
+		return true
+	return false
+
+
+func _on_build_ui_battle_start() -> void:
 	for monster in monsters:
-		if monster.target == null:
-			monster.target = get_tree().get_nodes_in_group("adventurers").pick_random()
+		monster.process_mode = Node.PROCESS_MODE_INHERIT
+	battling = true
+	emit_signal("in_battle")

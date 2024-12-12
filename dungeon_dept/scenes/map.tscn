@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=3 uid="uid://dih1x2vtk8ln4"]
+
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_p27s1"]
+[ext_resource type="AudioStream" uid="uid://cxo6ocf6t6l18" path="res://sounds/Click Sound Pack/Click1B.ogg" id="2_8htlu"]
+[ext_resource type="FontFile" uid="uid://ni4di2byl52v" path="res://assets/fonts/DUNGRG__.TTF" id="3_26nj1"]
+[ext_resource type="Texture2D" uid="uid://dpfno4hxy5s5f" path="res://assets/brick_wall.jpg" id="3_45scl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x81dd"]
+texture = ExtResource("3_45scl")
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p27s1")
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8htlu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -618.0
+offset_top = -438.0
+offset_right = 624.0
+offset_bottom = 585.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x81dd")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = 72.0
+offset_right = 56.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "1"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -184.0
+offset_right = 56.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "3"
+
+[node name="Connector" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 56.0
+offset_right = 9.0
+offset_bottom = 72.0
+color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+
+[node name="Connector2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -72.0
+offset_right = 9.0
+offset_bottom = -56.0
+color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+
+[node name="MoneyBackground" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -541.0
+offset_top = -284.0
+offset_right = -272.0
+offset_bottom = -224.0
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="QuotaBackground" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -540.0
+offset_top = -218.0
+offset_right = -272.0
+offset_bottom = -158.0
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="Money" type="Label" parent="."]
+layout_mode = 0
+offset_left = -540.0
+offset_top = -284.0
+offset_right = -271.0
+offset_bottom = -223.0
+theme_override_fonts/font = ExtResource("3_26nj1")
+theme_override_font_sizes/font_size = 50
+text = "TOTAL: $000.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quota" type="Label" parent="."]
+layout_mode = 0
+offset_left = -540.0
+offset_top = -218.0
+offset_right = -272.0
+offset_bottom = -157.0
+theme_override_fonts/font = ExtResource("3_26nj1")
+theme_override_font_sizes/font_size = 50
+text = "QUOTA: $000.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
