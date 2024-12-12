@@ -152,7 +152,7 @@ func change_facing(new_facing: Facing) -> void:
 
 func face_target() -> void:
 	var cur_pos = global_position
-	var direction = cur_pos.direction_to(target.global_position)
+	var direction = cur_pos.direction_to(enemy.global_position)
 	if direction.x < 0:
 		print("left")
 		sprite.flip_h = false
