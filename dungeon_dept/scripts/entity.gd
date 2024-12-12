@@ -1,6 +1,7 @@
 class_name Entity
 extends CharacterBody2D
 
+signal CharacterDirectionChange(facing:Facing)
 
 enum Facing { 
 	LEFT,
@@ -23,14 +24,20 @@ const DEFAULT_MOVE_VELOCITY: float = 3000.0
 
 @export var movement_speed: float = DEFAULT_MOVE_VELOCITY
 @export var target: Entity
+@export var enemy : Node2D
 @export var space: float = 50.0
 @export var separation_force: float = 500.0
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var calc_timer: Timer = $calcTimer
 @onready var animations = $AnimationPlayer
+@onready var senses : Senses = $Senses
+
+@export var melee_range : float = 20
 
 var _local_entities = []
+var team
+var enable_navigation := false
 
 #var right_cmd : Command
 #var left_cmd : Command
@@ -77,6 +84,9 @@ func actor_setup() -> void:
 		print("Target is not set!")
 		return
 	
+#func new_wander_target(_radius : float = wander_radius):
+	#var dir = Vector2(rand_range(min_x, max_x), rand_range(min_y, max_y))
+	#set_target(dir + global_position)
 
 func set_target_position(target_pos: Vector2) -> void:
 	#print("target_pos: ", target_pos)
@@ -84,8 +94,15 @@ func set_target_position(target_pos: Vector2) -> void:
 
 
 func _physics_process(delta: float) -> void: 
-	if navigation_agent_2d.is_navigation_finished():
+	if not enable_navigation:
 		#print("finished")
+		return
+	_navigate(delta)
+	
+
+func _navigate(delta: float):
+	if navigation_agent_2d.is_target_reached():
+		toggle_navigation(false)
 		return
 		
 	var cur_pos = global_position
@@ -107,8 +124,7 @@ func _physics_process(delta: float) -> void:
 	#print("locals: ", _local_entities)
 	#print("velocity: ", velocity)
 	_apply_movement(delta)
-	#move_and_slide()
-
+		
 func _apply_movement(_delta: float):
 	move_and_slide()
 	#print(velocity.length())
@@ -118,9 +134,28 @@ func _apply_movement(_delta: float):
 	else:
 		animations.play("attack")
 
+func toggle_navigation(toggle : bool):
+	enable_navigation = toggle
+	#if toggle == false:
+		#nav_force = Vector3.ZERO
+		#linear_velocity = Vector2.ZERO
 
 func change_facing(new_facing: Facing) -> void:
 	facing = new_facing
+	print(facing)
+	emit_signal("CharacterDirectionChange", facing)
+
+func face_target() -> void:
+	var cur_pos = global_position
+	var direction = cur_pos.direction_to(target.global_position)
+	if direction.x < 0:
+		change_facing(Facing.LEFT)
+	else:
+		change_facing(Facing.RIGHT)
+
+func check_melee_range() -> bool:
+	var cur_pos = global_position
+	return cur_pos.distance_to(enemy.global_position) <= melee_range
 
 
 #This function is meant to be called in the AnimationController after the each relevant anmiation has concluded.

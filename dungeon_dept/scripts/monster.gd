@@ -7,5 +7,7 @@ extends Entity
 func _ready() -> void:
 	cost = 100.0
 	#movement_speed = 4000.0
+	team = 1
+	facing = Facing.LEFT
 	super()
 	

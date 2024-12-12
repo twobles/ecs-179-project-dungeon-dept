@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkw0r4i788smd"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_eud80"]
-[ext_resource type="PackedScene" uid="uid://dn4aletp71tvk" path="res://scenes/background.tscn" id="1_yulkr"]
+[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="1_yulkr"]
 [ext_resource type="Texture2D" uid="uid://bod1q3ibcmp1a" path="res://assets/brick-4956032_1280.jpg" id="2_h3cd0"]
 
 [sub_resource type="Theme" id="Theme_gk6tv"]

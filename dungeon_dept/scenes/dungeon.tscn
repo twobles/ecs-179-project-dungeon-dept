@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=4 uid="uid://c52pdhxhweo3v"]
 
-[ext_resource type="PackedScene" uid="uid://dn4aletp71tvk" path="res://scenes/background.tscn" id="1_c647s"]
+[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="1_c647s"]
 [ext_resource type="PackedScene" uid="uid://0bs0pte8web4" path="res://scenes/board.tscn" id="1_hrjpp"]
 [ext_resource type="Texture2D" uid="uid://10psr2qk7bpd" path="res://assets/64x64_dungeon_sheet.png" id="2_nckn2"]
 [ext_resource type="Texture2D" uid="uid://bod1q3ibcmp1a" path="res://assets/brick-4956032_1280.jpg" id="2_pk53s"]
@@ -136,7 +136,6 @@ script = ExtResource("6_ichww")
 
 [node name="Knight" parent="Board" groups=["adventurers"] instance=ExtResource("4_tktlv")]
 position = Vector2(581, 379)
-target = NodePath("")
 
 [node name="BuildMenu" type="Node2D" parent="Board"]
 script = ExtResource("9_r383d")

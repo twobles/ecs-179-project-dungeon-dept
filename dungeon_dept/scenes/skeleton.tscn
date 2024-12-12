@@ -1,7 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7gc6l44qv5ep"]
+[gd_scene load_steps=15 format=3 uid="uid://b7gc6l44qv5ep"]
 
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_eml38"]
 [ext_resource type="Texture2D" uid="uid://kni3msmrq54c" path="res://assets/skeleton_sheet3.png" id="2_hvyhe"]
+[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeletonBehavior.tscn" id="3_b00pm"]
+[ext_resource type="Script" path="res://scripts/entity_facing.gd" id="3_x1scl"]
+[ext_resource type="Script" path="res://scripts/senses.gd" id="4_ux1sv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2aai"]
 radius = 47.0
@@ -109,6 +112,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_qqfqd"]
 radius = 101.02
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_teaah"]
+radius = 895.027
+
 [node name="Skeleton" type="CharacterBody2D"]
 script = ExtResource("1_eml38")
 
@@ -126,8 +132,11 @@ shape = SubResource("RectangleShape2D_plj5v")
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-48.625, 44.5)
+position = Vector2(-50, 45)
 shape = SubResource("RectangleShape2D_njxbq")
+script = ExtResource("3_x1scl")
+unflipped_position = Vector2(-50, 45)
+flipped_position = Vector2(180, 45)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hvyhe")
@@ -135,6 +144,7 @@ offset = Vector2(0, 40)
 hframes = 5
 vframes = 4
 frame = 7
+script = ExtResource("3_x1scl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -159,5 +169,21 @@ shape = SubResource("CircleShape2D_qqfqd")
 [node name="Spacer" type="Node2D" parent="."]
 position = Vector2(73, 47)
 
+[node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("3_b00pm")]
+blackboard = NodePath("@Node@84852")
+
+[node name="Senses" type="Area2D" parent="."]
+position = Vector2(0, -47)
+script = ExtResource("4_ux1sv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Senses"]
+position = Vector2(66, 98)
+shape = SubResource("CircleShape2D_teaah")
+
+[connection signal="CharacterDirectionChange" from="." to="Sprite2D" method="_on_skeleton_character_direction_change"]
 [connection signal="body_entered" from="spacer_radius" to="." method="_on_spacer_radius_body_entered"]
 [connection signal="body_exited" from="spacer_radius" to="." method="_on_spacer_radius_body_exited"]
+[connection signal="area_entered" from="Senses" to="Senses" method="_on_area_entered"]
+[connection signal="area_exited" from="Senses" to="Senses" method="_on_area_exited"]
+[connection signal="body_entered" from="Senses" to="Senses" method="_on_body_entered"]
+[connection signal="body_exited" from="Senses" to="Senses" method="_on_body_exited"]
