@@ -9,3 +9,4 @@ func _on_skeleton_character_direction_change(facing: Entity.Facing) -> void:
 		position = flipped_position
 	elif Entity.Facing.RIGHT == facing:
 		position = unflipped_position
+	#print("sprite pos: ", position)

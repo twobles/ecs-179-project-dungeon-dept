@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://scripts/senses.gd" id="4_ux1sv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2aai"]
-radius = 47.0
-height = 130.0
+radius = 42.0
+height = 86.0001
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plj5v"]
 size = Vector2(100, 205.5)
@@ -136,33 +136,35 @@ radius = 895.027
 script = ExtResource("1_eml38")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(72, 106)
+position = Vector2(-1, -40)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("CapsuleShape2D_e2aai")
 
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(63, 45)
+position = Vector2(-4, -61)
 shape = SubResource("RectangleShape2D_plj5v")
 
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-50, 45)
+position = Vector2(-122, -107)
 shape = SubResource("RectangleShape2D_njxbq")
 script = ExtResource("3_x1scl")
-unflipped_position = Vector2(-50, 45)
-flipped_position = Vector2(180, 45)
+unflipped_position = Vector2(110, -107)
+flipped_position = Vector2(-120, -107)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-72, -169)
 texture = ExtResource("2_hvyhe")
 offset = Vector2(0, 40)
 hframes = 5
 vframes = 4
 frame = 7
 script = ExtResource("3_x1scl")
-flipped_position = Vector2(126, 0)
+unflipped_position = Vector2(60, -169)
+flipped_position = Vector2(-72, -169)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -176,30 +178,32 @@ debug_enabled = true
 autostart = true
 
 [node name="spacer_radius" type="Area2D" parent="."]
-position = Vector2(73, 47)
+position = Vector2(0, -49)
 collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spacer_radius"]
-position = Vector2(0, 58)
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_qqfqd")
 
 [node name="Spacer" type="Node2D" parent="."]
 position = Vector2(73, 47)
 
-[node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("3_b00pm")]
-blackboard = NodePath("@Node@44945")
+[node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("3_b00pm")]
+blackboard = NodePath("@Node@95033")
+actor = NodePath("..")
 
 [node name="Senses" type="Area2D" parent="."]
 position = Vector2(0, -47)
 script = ExtResource("4_ux1sv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Senses"]
-position = Vector2(66, 98)
+position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_teaah")
 
 [node name="Cooldown" type="Timer" parent="."]
 
+[connection signal="CharacterDirectionChange" from="." to="HitBox/CollisionShape2D" method="_on_skeleton_character_direction_change"]
 [connection signal="CharacterDirectionChange" from="." to="Sprite2D" method="_on_skeleton_character_direction_change"]
 [connection signal="body_entered" from="spacer_radius" to="." method="_on_spacer_radius_body_entered"]
 [connection signal="body_exited" from="spacer_radius" to="." method="_on_spacer_radius_body_exited"]

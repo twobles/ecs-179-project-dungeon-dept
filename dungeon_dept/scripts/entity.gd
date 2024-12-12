@@ -171,6 +171,7 @@ func face_target() -> void:
 
 func check_melee_range() -> bool:
 	var cur_pos = global_position
+	print(cur_pos.distance_to(enemy.global_position), " <= ", melee_range)
 	return cur_pos.distance_to(enemy.global_position) <= melee_range
 
 
@@ -207,13 +208,13 @@ func _manage_animation_tree_state() -> void:
 	print(animations.is_playing())
 	if attacking:
 		#nimation_tree["parameters/conditions/attack"] = true
-		print("attack: ", attacking)
-		print("playing: ",animations.is_playing())
+		#print("attack: ", attacking)
+		#print("playing: ",animations.is_playing())
 		animations.play("attack")
 		attacking = false
 		#nimation_tree["parameters/conditions/attack"] = false
 	elif walking:
-		print("walking")
+		#print("walking")
 		animations.play("walking")	
 	#else:
 		##animation_tree["parameters/conditions/walking"] = false
