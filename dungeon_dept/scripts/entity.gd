@@ -101,6 +101,7 @@ func _physics_process(delta: float) -> void:
 		#print("finished")
 		return
 	
+	_manage_animation_tree_state()
 	_navigate(delta)
 	
 
@@ -180,18 +181,23 @@ func _on_timer_timeout() -> void:
 		return
 
 
-func _on_spacer_radius_body_entered(body: Node2D) -> void:
-	if body == self:
-		return
-	print("self: ", is_instance_of(self, Monster))
-	print("other: ", body is Monster)
-	if is_instance_of(self, Monster) and body is Monster:
-		_local_entities.push_back(body)
-		print("entered: ", _local_entities)
-
-
-func _on_spacer_radius_body_exited(body: Node2D) -> void:
-	_local_entities.erase(body)
+#func _on_spacer_radius_body_entered(body: Node2D) -> void:
+	#if body == self:
+		#return
+	#print("self: ", is_instance_of(self, Monster))
+	#print("other: ", body is Monster)
+	#if is_instance_of(self, Monster) and body is Monster:
+		#_local_entities.push_back(body)
+		#print("entered: ", _local_entities)
+#
+#
+#func _on_spacer_radius_body_exited(body: Node2D) -> void:
+	#_local_entities.erase(body)
+	
+func _manage_animation_tree_state() -> void:
+	if velocity.length() > 5.0:
+		animations.play("walking")
+	else:
 		#animation_tree["parameters/conditions/walking"] = false
 		animations.play("idle")
 	
