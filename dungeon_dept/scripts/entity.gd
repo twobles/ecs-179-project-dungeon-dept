@@ -31,9 +31,12 @@ const DEFAULT_MOVE_VELOCITY: float = 3000.0
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var calc_timer: Timer = $calcTimer
 @onready var animations = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
 @onready var senses : Senses = $Senses
 
 @export var melee_range : float = 20
+@onready var cooldown : Timer = $Cooldown
+var in_cooldown := false
 
 var _local_entities = []
 var team
@@ -97,6 +100,7 @@ func _physics_process(delta: float) -> void:
 	if not enable_navigation:
 		#print("finished")
 		return
+	
 	_navigate(delta)
 	
 
@@ -129,10 +133,10 @@ func _apply_movement(_delta: float):
 	move_and_slide()
 	#print(velocity.length())
 	#print(velocity.length() > 5.0)
-	if velocity.length() > 5.0:
-		animations.play("walking")
-	else:
-		animations.play("attack")
+	#if velocity.length() > 5.0:
+		#animations.play("walking")
+	#else:
+		#animations.play("attack")
 
 func toggle_navigation(toggle : bool):
 	enable_navigation = toggle
@@ -149,6 +153,8 @@ func face_target() -> void:
 	var cur_pos = global_position
 	var direction = cur_pos.direction_to(target.global_position)
 	if direction.x < 0:
+		print("left")
+		sprite.flip_h = false
 		change_facing(Facing.LEFT)
 	else:
 		change_facing(Facing.RIGHT)
@@ -186,3 +192,19 @@ func _on_spacer_radius_body_entered(body: Node2D) -> void:
 
 func _on_spacer_radius_body_exited(body: Node2D) -> void:
 	_local_entities.erase(body)
+		#animation_tree["parameters/conditions/walking"] = false
+		animations.play("idle")
+	
+	#toggles
+	if attacking:
+		print("attack")
+		#nimation_tree["parameters/conditions/attack"] = true
+		animations.play("attack")
+		attacking = false
+		#nimation_tree["parameters/conditions/attack"] = false
+		
+	#if _damaged:
+		#animation_tree["parameters/conditions/damaged"] = true
+		#_damaged = false
+	#else:
+		#animation_tree["parameters/conditions/damaged"] = false

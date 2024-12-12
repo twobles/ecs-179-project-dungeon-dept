@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7gc6l44qv5ep"]
+[gd_scene load_steps=16 format=3 uid="uid://b7gc6l44qv5ep"]
 
 [ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_eml38"]
 [ext_resource type="Texture2D" uid="uid://kni3msmrq54c" path="res://assets/skeleton_sheet3.png" id="2_hvyhe"]
@@ -102,10 +102,27 @@ tracks/0/keys = {
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(0, 1), Vector2i(2, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_lrwyb"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mwfj3"]
 _data = {
 "RESET": SubResource("Animation_4aadm"),
 "attack": SubResource("Animation_srbjb"),
+"idle": SubResource("Animation_lrwyb"),
 "walking": SubResource("Animation_0yqbt")
 }
 
@@ -170,7 +187,7 @@ shape = SubResource("CircleShape2D_qqfqd")
 position = Vector2(73, 47)
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("3_b00pm")]
-blackboard = NodePath("@Node@84852")
+blackboard = NodePath("@Node@111543")
 
 [node name="Senses" type="Area2D" parent="."]
 position = Vector2(0, -47)
@@ -179,6 +196,8 @@ script = ExtResource("4_ux1sv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Senses"]
 position = Vector2(66, 98)
 shape = SubResource("CircleShape2D_teaah")
+
+[node name="Cooldown" type="Timer" parent="."]
 
 [connection signal="CharacterDirectionChange" from="." to="Sprite2D" method="_on_skeleton_character_direction_change"]
 [connection signal="body_entered" from="spacer_radius" to="." method="_on_spacer_radius_body_entered"]

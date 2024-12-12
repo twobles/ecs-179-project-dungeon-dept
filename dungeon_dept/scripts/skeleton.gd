@@ -3,4 +3,4 @@ extends Monster
 
 func _ready() -> void:
 	team = 1
-	melee_range = 21
+	melee_range = 30

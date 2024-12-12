@@ -21,13 +21,6 @@ radius = 91.6788
 position = Vector2(788, 300)
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_s5a57")
-health = null
-damage = null
-type = null
-movement_speed = null
-space = null
-separation_force = null
-melee_range = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gxehw")
