@@ -43,10 +43,7 @@ script = ExtResource("3_u7oah")
 [node name="CheckMeleeRange" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/SequenceComposite"]
 script = ExtResource("8_r536m")
 
-[node name="TimeLimiterDecorator" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/SequenceComposite"]
-script = ExtResource("7_di3u3")
-
-[node name="FaceTarget" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/SequenceComposite/TimeLimiterDecorator"]
+[node name="FaceTarget" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/SequenceComposite"]
 script = ExtResource("8_acpxo")
 
 [node name="Attack" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange"]

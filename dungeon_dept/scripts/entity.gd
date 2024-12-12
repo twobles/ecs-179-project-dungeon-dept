@@ -57,6 +57,12 @@ var attacking : bool:
 	get():
 		return attacking
 
+var walking : bool: 
+	set(value): 
+		walking = value
+	get():
+		return walking
+
 var summoning : bool:
 	set(value):
 		summoning = value
@@ -141,7 +147,10 @@ func _apply_movement(_delta: float):
 
 func toggle_navigation(toggle : bool):
 	enable_navigation = toggle
-	#if toggle == false:
+	if toggle == false:
+		target = null
+		navigation_agent_2d.target_position = global_position
+		animations.stop()
 		#nav_force = Vector3.ZERO
 		#linear_velocity = Vector2.ZERO
 
@@ -197,20 +206,18 @@ func _on_timer_timeout() -> void:
 	#_local_entities.erase(body)
 	
 func _manage_animation_tree_state() -> void:
-	if velocity.length() > 5.0:
-		animations.play("walking")
-	else:
-		#animation_tree["parameters/conditions/walking"] = false
-		animations.play("idle")
-	
-	#toggles
 	if attacking:
-		print("attack")
+		print("attack: ", attacking)
 		#nimation_tree["parameters/conditions/attack"] = true
 		animations.play("attack")
 		attacking = false
 		#nimation_tree["parameters/conditions/attack"] = false
-		
+	elif walking:
+		print("walking")
+		animations.play("walking")	
+	else:
+		#animation_tree["parameters/conditions/walking"] = false
+		animations.play("idle")
 	#if _damaged:
 		#animation_tree["parameters/conditions/damaged"] = true
 		#_damaged = false
