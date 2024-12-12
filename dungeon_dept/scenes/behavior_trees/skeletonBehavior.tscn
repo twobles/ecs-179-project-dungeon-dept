@@ -17,7 +17,7 @@
 [node name="SkeletonBehavior" type="Node2D" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_c2tek")
 blackboard = NodePath("@Node@17267")
-actor = NodePath("..")
+actor = NodePath("")
 
 [node name="SelectorReactiveComposite" type="Node" parent="."]
 script = ExtResource("2_fgiwo")
@@ -43,7 +43,10 @@ script = ExtResource("3_u7oah")
 [node name="CheckMeleeRange" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/SequenceComposite"]
 script = ExtResource("8_r536m")
 
-[node name="FaceTarget" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/SequenceComposite"]
+[node name="TimeLimiterDecorator" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/SequenceComposite"]
+script = ExtResource("7_di3u3")
+
+[node name="FaceTarget" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/SequenceComposite/TimeLimiterDecorator"]
 script = ExtResource("8_acpxo")
 
 [node name="Attack" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange"]
@@ -58,9 +61,6 @@ script = ExtResource("4_20hyo")
 [node name="SetTarget" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/GoToEnemy"]
 script = ExtResource("6_na3gu")
 
-[node name="FaceTarget" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/GoToEnemy"]
-script = ExtResource("8_acpxo")
-
 [node name="StartNavigation" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/GoToEnemy"]
 script = ExtResource("10_dtyni")
 
@@ -70,5 +70,8 @@ script = ExtResource("7_di3u3")
 [node name="WaitMeleeRange" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/GoToEnemy/TimeLimiterDecorator"]
 script = ExtResource("11_88r70")
 
-[node name="WaitMeleeRange" type="Node" parent="SelectorReactiveComposite"]
+[node name="TimeLimiterDecorator" type="Node" parent="SelectorReactiveComposite"]
+script = ExtResource("7_di3u3")
+
+[node name="WaitMeleeRange" type="Node" parent="SelectorReactiveComposite/TimeLimiterDecorator"]
 script = ExtResource("11_88r70")

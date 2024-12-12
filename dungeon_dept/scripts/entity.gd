@@ -147,17 +147,19 @@ func toggle_navigation(toggle : bool):
 
 func change_facing(new_facing: Facing) -> void:
 	facing = new_facing
-	print(facing)
+	#print(facing)
 	emit_signal("CharacterDirectionChange", facing)
 
 func face_target() -> void:
 	var cur_pos = global_position
 	var direction = cur_pos.direction_to(enemy.global_position)
 	if direction.x < 0:
-		print("left")
+		#print("left")
 		sprite.flip_h = false
 		change_facing(Facing.LEFT)
 	else:
+		#print("right")
+		sprite.flip_h = true
 		change_facing(Facing.RIGHT)
 
 func check_melee_range() -> bool:
