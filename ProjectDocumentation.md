@@ -18,7 +18,7 @@ It’s another beautiful day of work at the Department of Dungeon Design! It’s
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
-# Main Roles #
+# Roles #
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
@@ -31,34 +31,48 @@ Here is an example:
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
-## Producer
+## Ezren Aldas ##
+
+### Producer
 
 **Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
-## User Interface and Input
+### Narrative Design
+
+**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+
+### Other Contributions
+
+**Other contributions outside roles. Delete section if not applicable**
+
+
+## Ivan Hoang ##
+
+### Animation and Visuals
+
+**List your assets, including their sources and licenses.**
+
+**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+
+### Game Feel and Polish
+
+**Document what you added to and how you tweaked your game to improve its game feel.**
+
+### Other Contributions
+
+**Other contributions outside roles. Delete section if not applicable**
+
+
+## Josh Lai ##
+
+### User Interface and Input
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 **Describe the default input configuration.**
 
 **Add an entry for each platform or input style your project supports.**
 
-## Movement/Physics
-
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
-
-## Animation and Visuals
-
-**List your assets, including their sources and licenses.**
-
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
-
-## Game Logic
-
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
-
-# Sub-Roles
-
-## Audio
+### Audio
 
 **List your assets, including their sources and licenses.**
 
@@ -66,22 +80,41 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Document the sound style.** 
 
-## Gameplay Testing
+### Other Contributions
 
-**Add a link to the full results of your gameplay tests.**
+**Other contributions outside roles. Delete section if not applicable**
 
-**Summarize the key findings from your gameplay tests.**
 
-## Narrative Design
+## Joe Zhu ##
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+### Movement/Physics
 
-## Press Kit and Trailer
+**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+
+### Press Kit and Trailer
 
 **Include links to your presskit materials and trailer.**
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
-## Game Feel and Polish
+### Other Contributions
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
+**Other contributions outside roles. Delete section if not applicable**
+
+
+## Huy Vuu ##
+
+### Game Logic
+
+**Document the game states and game data you managed and the design patterns you used to complete your task.**
+
+### Gameplay Testing
+
+**Add a link to the full results of your gameplay tests.**
+
+**Summarize the key findings from your gameplay tests.**
+
+### Other Contributions
+
+**Other contributions outside roles. Delete section if not applicable**
+
