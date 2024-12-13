@@ -1,7 +1,7 @@
 class_name Skeleton
 extends Monster
 
-
+@onready var skeleton_sfx: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var damage_taken_indicator: Label = $DamageTaken
 var _death: bool = false
 var dam_ind_delay: int = 0
@@ -15,6 +15,9 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	add_child(skeleton_sfx)
+	skeleton_sfx.stream = preload("res://sounds/SFX/skeleton_sfx.wav")
+	skeleton_sfx.play()
 	melee_range = 40
 	damage_taken_indicator.text = " "
 	super()
