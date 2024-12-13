@@ -98,6 +98,8 @@ Golem SFX: Thump Slice.wav by johnnypanic -- https://freesound.org/s/320826/ -- 
 
 **Document the sound style.** 
 
+The style of the sound was aimed to represent adventurers invading a dungeon. Thus, we wanted to find a soundtrack that had dark undertones while still having an appropriate game soundtrack. The battle soundtrack involves a more jumpier beat that reflects the adventurers and monsters in battle. The sound effects of the monsters being placed down was intended to achieve an interactive connection with the user.
+
 ### Other Contributions
 
 **Other contributions outside roles. Delete section if not applicable**
