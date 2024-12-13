@@ -5,7 +5,9 @@ extends Area2D
 
 
 func _init() -> void:
+	# take damage layer
 	collision_layer = 0
+	# give damage layer
 	collision_mask = 8
 	area_entered.connect(_on_area_entered)
 

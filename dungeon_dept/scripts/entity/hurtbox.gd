@@ -5,7 +5,9 @@ var damage: int
 
 
 func _init() -> void:
+	# give damage layer
 	collision_layer = 8
+	# take damage layer
 	collision_mask = 0
 	area_entered.connect(_on_area_entered)
 	
