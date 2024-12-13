@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://2a7ialugb4xq"]
+[gd_scene load_steps=19 format=3 uid="uid://2a7ialugb4xq"]
 
 [ext_resource type="Script" path="res://scripts/monsters/slime.gd" id="1_j0vjh"]
 [ext_resource type="Texture2D" uid="uid://xxfk0ex2eucd" path="res://assets/slime_sprite_test.png" id="2_gu12m"]
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_mf5vr"]
+[ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_gptp4"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_ms6af"]
+[ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_c6k7r"]
 [ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeletonBehavior.tscn" id="5_tbjfi"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
@@ -143,6 +145,10 @@ radius = 60.013
 [sub_resource type="CircleShape2D" id="CircleShape2D_718ox"]
 radius = 665.042
 
+[sub_resource type="LabelSettings" id="LabelSettings_16t1w"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+
 [node name="Slime" type="CharacterBody2D"]
 scale = Vector2(0.35, 0.35)
 collision_layer = 3
@@ -169,6 +175,7 @@ scale = Vector2(0.999999, 0.999999)
 shape = SubResource("CapsuleShape2D_owpic")
 
 [node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("4_gptp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(15, -73.75)
@@ -176,6 +183,7 @@ scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_pv1c6")
 
 [node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("5_c6k7r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-354.018, -122.857)
@@ -213,8 +221,16 @@ shape = SubResource("CircleShape2D_718ox")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_tbjfi")]
-blackboard = NodePath("@Node@17279")
+blackboard = NodePath("@Node@117155")
 actor = NodePath("..")
+
+[node name="DamageTaken" type="Label" parent="."]
+offset_left = -11.4286
+offset_top = -311.429
+offset_right = 39.5714
+offset_bottom = -269.429
+text = "999"
+label_settings = SubResource("LabelSettings_16t1w")
 
 [connection signal="area_entered" from="Senses" to="Senses" method="_on_area_entered"]
 [connection signal="area_exited" from="Senses" to="Senses" method="_on_area_exited"]

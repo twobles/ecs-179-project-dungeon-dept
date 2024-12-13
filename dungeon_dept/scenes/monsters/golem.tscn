@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3c0t5v17bac"]
+[gd_scene load_steps=19 format=3 uid="uid://b3c0t5v17bac"]
 
 [ext_resource type="Script" path="res://scripts/monsters/golem.gd" id="1_73tv4"]
 [ext_resource type="Texture2D" uid="uid://dfhgqvxno11qu" path="res://assets/golem_sprite_test.png" id="2_gdi82"]
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_bxa0m"]
+[ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_oo4yg"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_twdv6"]
 [ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeletonBehavior.tscn" id="5_36vcm"]
+[ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_h7xal"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
 length = 0.001
@@ -143,6 +145,10 @@ radius = 60.013
 [sub_resource type="CircleShape2D" id="CircleShape2D_je2qm"]
 radius = 665.042
 
+[sub_resource type="LabelSettings" id="LabelSettings_jyif8"]
+font_size = 18
+font_color = Color(1, 0, 0, 1)
+
 [node name="Golem" type="CharacterBody2D"]
 scale = Vector2(0.8, 0.8)
 collision_layer = 3
@@ -169,6 +175,7 @@ scale = Vector2(0.999999, 0.999999)
 shape = SubResource("CapsuleShape2D_lm1hu")
 
 [node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("4_oo4yg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(15, -73.75)
@@ -176,6 +183,7 @@ scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_2c401")
 
 [node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("5_h7xal")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-110.625, -75)
@@ -213,8 +221,15 @@ shape = SubResource("CircleShape2D_je2qm")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_36vcm")]
-blackboard = NodePath("@Node@17282")
+blackboard = NodePath("@Node@116920")
 actor = NodePath("..")
+
+[node name="DamageTaken" type="Label" parent="."]
+offset_top = -180.0
+offset_right = 51.0
+offset_bottom = -138.0
+text = "999"
+label_settings = SubResource("LabelSettings_jyif8")
 
 [connection signal="CharacterDirectionChange" from="." to="Sprite2D" method="_on_golem_character_direction_change"]
 [connection signal="CharacterDirectionChange" from="." to="AnimationPlayer" method="_on_golem_character_direction_change"]
