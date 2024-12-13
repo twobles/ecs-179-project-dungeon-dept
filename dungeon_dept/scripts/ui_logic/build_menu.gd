@@ -9,9 +9,14 @@ signal battle_start
 @onready var monster_factory := MonsterFactory.new()
 @onready var monster_sprite_factory := MonsterSpriteFactory.new()
 @onready var click_player = $UIBlock/VBoxContainer/Ready/ClickPlayer
+@onready var info_block = $Info
+@onready var monster_name = $Info/InfoBackground/MonsterName
+@onready var monster_stats = $Info/InfoBackground/MonsterStats
+@onready var icon_background = $Info/InfoBackground/IconBackground
 
 var curr_monster_icon: Sprite2D
 var curr_monster_instance: Monster
+var monster_info_icon: Sprite2D
 
 var mon_table = {
 	1: Skeleton.new(),
@@ -48,15 +53,19 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("clear_select"):
 		_remove_curr_icon()
 
+	
 	if Input.is_action_just_pressed("spawn_monster_1"):
+		_update_monster_info("res://assets/skeleton_alt.png", "SKELETON", "COST: 20\nRANGE: 40")
 		monster_index = 1
 		selected = true
 
 	if Input.is_action_just_pressed("spawn_monster_2"):
+		_update_monster_info("res://assets/slime.png", "SLIME", "COST: 10\nRANGE: 90")
 		monster_index = 2
 		selected = true
 
 	if Input.is_action_just_pressed("spawn_monster_3"):
+		_update_monster_info("res://assets/golem.png", "GOLEM", "COST: 40\nRANGE: 60")
 		monster_index = 3
 		selected = true
 
@@ -75,6 +84,7 @@ func _process(_delta: float) -> void:
 func _on_ready_pressed() -> void:
 	click_player.play()
 	ui_block.visible = false
+	info_block.visible = false
 	emit_signal("battle_start")
 	battle_start_emitted = true
 
@@ -118,3 +128,8 @@ func _remove_curr_icon() -> void:
 	curr_monster_icon = null
 	holding = false
 	selected = false
+
+func _update_monster_info(icon: String, name: String, stats: String) -> void:
+	#icon_background.texture = load(icon)
+	monster_name.text = name
+	monster_stats.text = stats
