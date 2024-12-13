@@ -76,6 +76,18 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **List your assets, including their sources and licenses.**
 
+Audio Sources: 
+
+Menu Soundtrack: Goblins_Den_(Regular).ogg by Leohpaz -- https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack
+
+Battle Soundtrack: Goblins_Dance_(Battle).ogg by Leohpaz -- https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack
+
+Skeleton SFX: Rattling Bones.wav by spookymodem -- https://freesound.org/s/202102/ -- License: Creative Commons 0
+
+Slime SFX: Slosh A.wav by samuelcable -- https://freesound.org/s/393494/ -- License: Creative Commons 0
+
+Golem SFX: Thump Slice.wav by johnnypanic -- https://freesound.org/s/320826/ -- License: Creative Commons 0
+
 **Describe the implementation of your audio system.**
 
 **Document the sound style.** 
