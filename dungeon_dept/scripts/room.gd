@@ -6,6 +6,8 @@ signal in_battle
 
 @export var connected_rooms: Array[Room] = []
 
+@onready var money_indicator = $Money
+@onready var quota_indicator = $Quota
 @onready var entity_manager = $EntityManager
 @onready var build_ui = $BuildUI
 @onready var active_room: bool = false
@@ -19,6 +21,11 @@ func _ready() -> void:
 		pause()
 	else:
 		return
+			
+			
+func _process(_delta: float) -> void:
+	money_indicator.text = "TOTAL: $" + str(money_engine.money)
+	quota_indicator.text = "QUOTA: $" + str(money_engine.quota)
 			
 			
 func room_is_ready() -> bool:

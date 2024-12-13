@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://b7gc6l44qv5ep"]
+[gd_scene load_steps=19 format=3 uid="uid://b7gc6l44qv5ep"]
 
 [ext_resource type="Script" path="res://scripts/monsters/skeleton.gd" id="1_eml38"]
 [ext_resource type="Texture2D" uid="uid://cc7qvm72c0fpe" path="res://assets/skeleton_sheet3.png" id="2_hvyhe"]
+[ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="2_xr5po"]
+[ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="3_1lcpf"]
 [ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeletonBehavior.tscn" id="3_b00pm"]
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_x1scl"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_ux1sv"]
@@ -132,6 +134,10 @@ radius = 101.02
 [sub_resource type="CircleShape2D" id="CircleShape2D_teaah"]
 radius = 895.027
 
+[sub_resource type="LabelSettings" id="LabelSettings_uion3"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+
 [node name="Skeleton" type="CharacterBody2D"]
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_eml38")
@@ -142,12 +148,14 @@ scale = Vector2(0.999999, 0.999999)
 shape = SubResource("CapsuleShape2D_e2aai")
 
 [node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("2_xr5po")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(-4, -61)
 shape = SubResource("RectangleShape2D_plj5v")
 
 [node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("3_1lcpf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-122, -107)
@@ -190,7 +198,7 @@ shape = SubResource("CircleShape2D_qqfqd")
 position = Vector2(73, 47)
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("3_b00pm")]
-blackboard = NodePath("@Node@17276")
+blackboard = NodePath("@Node@75469")
 actor = NodePath("..")
 
 [node name="Senses" type="Area2D" parent="."]
@@ -202,6 +210,14 @@ position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_teaah")
 
 [node name="Cooldown" type="Timer" parent="."]
+
+[node name="DamageTaken" type="Label" parent="."]
+offset_left = -42.8571
+offset_top = -311.429
+offset_right = 8.14286
+offset_bottom = -269.429
+text = "999"
+label_settings = SubResource("LabelSettings_uion3")
 
 [connection signal="CharacterDirectionChange" from="." to="HitBox/CollisionShape2D" method="_on_skeleton_character_direction_change"]
 [connection signal="CharacterDirectionChange" from="." to="Sprite2D" method="_on_skeleton_character_direction_change"]
