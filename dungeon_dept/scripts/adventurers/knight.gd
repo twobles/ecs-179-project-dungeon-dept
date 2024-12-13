@@ -9,6 +9,7 @@ var prev_damage_taken: int = 0
 
 
 func _ready() -> void:
+	melee_range = 40
 	super()
 	damage_taken_indicator.text = " "
 
