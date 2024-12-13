@@ -82,6 +82,8 @@ Menu Soundtrack: Goblins_Den_(Regular).ogg by Leohpaz -- https://leohpaz.itch.io
 
 Battle Soundtrack: Goblins_Dance_(Battle).ogg by Leohpaz -- https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack
 
+Clicking SFX: Click1B.ogg by EpeSami -- https://epesami.itch.io/mechanical-click-sound-pack
+
 Skeleton SFX: Rattling Bones.wav by spookymodem -- https://freesound.org/s/202102/ -- License: Creative Commons 0
 
 Slime SFX: Slosh A.wav by samuelcable -- https://freesound.org/s/393494/ -- License: Creative Commons 0
@@ -89,6 +91,10 @@ Slime SFX: Slosh A.wav by samuelcable -- https://freesound.org/s/393494/ -- Lice
 Golem SFX: Thump Slice.wav by johnnypanic -- https://freesound.org/s/320826/ -- License: Creative Commons 0
 
 **Describe the implementation of your audio system.**
+
+<u>Soundtrack:</u> Upon the project being ran, the menu soundtrack is being played on a loop. This continues when the user enters the room. When the user clicks ready in a room, the battle soundtrack will be played on a loop. However, when switching back to the map, the menu soundtrack is played again. This logic is applicable to every room in the map. 
+
+<u>Sound Effects:</u> There is a clicking sound effect that is played whenever a button is clicked. In the Build Menu UI, sound effects are being played depending on which monster is being placed down for roughly one second. When the skeleton is placed down, a bone rattling sound effect plays. When the slime is placed down, a water sloshing sound effect plays. When the golem is placed down, a thumping sound effect plays.
 
 **Document the sound style.** 
 
