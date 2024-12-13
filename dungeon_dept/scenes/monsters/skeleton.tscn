@@ -152,7 +152,6 @@ script = ExtResource("2_xr5po")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(8.71428, -93.4107)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_plj5v")
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -199,7 +198,7 @@ shape = SubResource("CircleShape2D_qqfqd")
 position = Vector2(73, 47)
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("3_b00pm")]
-blackboard = NodePath("@Node@32519")
+blackboard = NodePath("@Node@17265")
 actor = NodePath("..")
 
 [node name="Senses" type="Area2D" parent="."]
