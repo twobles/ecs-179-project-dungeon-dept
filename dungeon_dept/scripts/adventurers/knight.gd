@@ -31,3 +31,4 @@ func take_damage(d: int) -> void:
 		_death = true
 		print("knight DEAD")
 		# FIXME: do stuff like remove knight when knight dies. make death funct?
+		queue_free()

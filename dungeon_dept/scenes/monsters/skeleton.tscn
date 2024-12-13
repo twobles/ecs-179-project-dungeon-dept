@@ -13,7 +13,7 @@ radius = 42.0
 height = 86.0001
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plj5v"]
-size = Vector2(100, 205.5)
+size = Vector2(74.5714, 270.321)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njxbq"]
 size = Vector2(178.75, 103)
@@ -151,7 +151,8 @@ shape = SubResource("CapsuleShape2D_e2aai")
 script = ExtResource("2_xr5po")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-4, -61)
+position = Vector2(8.71428, -93.4107)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_plj5v")
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -198,7 +199,7 @@ shape = SubResource("CircleShape2D_qqfqd")
 position = Vector2(73, 47)
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("3_b00pm")]
-blackboard = NodePath("@Node@75469")
+blackboard = NodePath("@Node@32519")
 actor = NodePath("..")
 
 [node name="Senses" type="Area2D" parent="."]
