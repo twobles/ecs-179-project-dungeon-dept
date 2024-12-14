@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://b350tl00c4f2w"]
+[gd_scene load_steps=19 format=3 uid="uid://b350tl00c4f2w"]
 
 [ext_resource type="Script" path="res://scripts/adventurers/knight.gd" id="1_s5a57"]
 [ext_resource type="Texture2D" uid="uid://bmq31kr3rj2o6" path="res://assets/knight_sheet.png" id="2_202u1"]
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_uugi8"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_graoc"]
+[ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_wbuqo"]
 [ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeletonBehavior.tscn" id="5_8ti6n"]
+[ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_nnlgk"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
 length = 0.001
@@ -160,6 +162,7 @@ shape = SubResource("CapsuleShape2D_hsmnu")
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(-20, 0)
+script = ExtResource("4_wbuqo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(18.6606, -110.804)
@@ -167,6 +170,7 @@ scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_crcio")
 
 [node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("5_nnlgk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(150, -120)
@@ -209,10 +213,10 @@ blackboard = NodePath("@Node@17268")
 actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]
-offset_left = -42.8571
-offset_top = -285.714
-offset_right = 8.14282
-offset_bottom = -243.714
+offset_left = -37.1429
+offset_top = -282.857
+offset_right = 13.8571
+offset_bottom = -240.857
 text = "999"
 label_settings = SubResource("LabelSettings_8746d")
 
