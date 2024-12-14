@@ -40,14 +40,14 @@ You should replay any **bold text** with your relevant information. Liberally us
 *Ideation* - Actively participated in initial game ideation, created sketches and worked with team to develop ideas
 
 <img src="./project_doc_materials/ezren/sketch1.jpg" alt="Sketch thumbnails of play phases" height="500">
-Sketch thumbnails of play phases
+Above: Sketch thumbnails of play phases
 
 <img src="./project_doc_materials/ezren/sketch2.jpg" alt="Sketches and notes of game screens" height="500">
-Sketches and notes of game screens
+Above: Sketches and notes of game screens
 
 <img src="./project_doc_materials/ezren/watercoolerslime1-sketch.png" alt="digital sketch sprite of watercooler-themed cube slime monster">
 <img src="./project_doc_materials/ezren/watercoolerslime2-sketch.png" alt="digital sketch sprite of watercooler-shaped slime monster">
-Two ideation sketches of watercooler-themed slime monster sprites
+Above: Two ideation sketches of watercooler-themed slime monster sprites
 
 *Initial Schedule* - Created rough schedule in initial plan
 
