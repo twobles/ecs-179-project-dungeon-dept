@@ -1,6 +1,8 @@
 class_name Slime
 extends Monster
 
+signal ShootProjectile(enemy:Node2D)
+
 @onready var slime_sfx: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var damage_taken_indicator: Label = $DamageTaken
 var _death: bool = false
@@ -17,7 +19,7 @@ func _ready() -> void:
 	add_child(slime_sfx)
 	slime_sfx.stream = preload("res://sounds/SFX/slime_sfx.wav")
 	slime_sfx.play()
-	melee_range = 90
+	melee_range = 350
 	damage_taken_indicator.text = " "
 	super()
 	
@@ -34,6 +36,7 @@ func _process(_delta: float) -> void:
 		dam_ind_delay -= 1
 	else:
 		damage_taken_indicator.text = " "
+	#print("slime: ", position)
 
 
 func take_damage(d: int) -> void:
@@ -44,5 +47,12 @@ func take_damage(d: int) -> void:
 	if 0 >= health:
 		_death = true
 		print("slime DEAD")
+<<<<<<< HEAD
 		slime_sfx.stream = preload("res://sounds/SFX/slime_sfx.wav")
 		slime_sfx.play()
+=======
+		# FIXME: do stuff like remove when dies. make death funct?
+
+func shoot():
+	emit_signal("ShootProjectile", enemy)
+>>>>>>> 96985572e1284931da0ae86e55235dfa1ab5dbbc

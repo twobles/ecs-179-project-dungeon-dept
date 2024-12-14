@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxhi3xwgq8bew"]
+
+[ext_resource type="Script" path="res://scripts/entity/projectile.gd" id="1_wrxup"]
+[ext_resource type="Texture2D" uid="uid://cl5gr8rnorxad" path="res://assets/slime_ball.png" id="2_3ufcm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dguin"]
+radius = 54.0
+
+[node name="Projectile" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_wrxup")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 0)
+texture = ExtResource("2_3ufcm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -23)
+shape = SubResource("CircleShape2D_dguin")

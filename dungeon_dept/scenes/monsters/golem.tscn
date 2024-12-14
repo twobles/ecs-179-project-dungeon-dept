@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_bxa0m"]
 [ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_oo4yg"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_twdv6"]
-[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeletonBehavior.tscn" id="5_36vcm"]
+[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="5_36vcm"]
 [ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_h7xal"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]

@@ -143,18 +143,20 @@ The style of the sound was aimed to represent adventurers invading a dungeon. Th
 
 ### Movement/Physics
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+Attempted to improve pathfinding for the entities (monster and advanturers). Looked for ways to get the monsters surrounding the adventurers. Also attempted to fix the attack and damage system. Currently, monsters have friendly fire and both adventurers and monsters are taking damage without being attacked. Failed attempts are in the branches. Actively discussed with the team on the problems and solutions.
 
 ### Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+**Press Kit**
+![Press Kit page 1](presskit/1.png)
+![Press kit page 2](presskit/2.png)
+I choose to show case the game's narrative and the game's unique art style in the press kit. The press kit includes the game's assests such as side-notes and spirits and a brief description of the game. 
 
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+**Trailer**
+[Trailer](https://drive.google.com/file/d/1bx2WpOICYy6TbZIUmMJ08n9ODcFkNQXx/view?usp=sharing)
+In the trailer I wanted to make audiences feel the potential of the game. I included the game's narrative and the game's unique art style. I also included the clips of the gameplays with different combinations of monsters to show the game's variety.
 
 ### Other Contributions
-
-**Other contributions outside roles. Delete section if not applicable**
-
 
 ## Huy Vuu ##
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c8psmhlufab5k"]
+[gd_scene load_steps=13 format=4 uid="uid://d03fmgpar4wam"]
 
 [ext_resource type="Texture2D" uid="uid://cv1tyxj5klge4" path="res://assets/Dungeon_Tileset_Resize32x32.png" id="1_7rgrb"]
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_apaen"]

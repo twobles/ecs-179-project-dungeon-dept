@@ -1,4 +1,5 @@
-class_name FaceTarget extends ActionLeaf
+class_name FaceTarget 
+extends ActionLeaf
 
 func tick(actor:Node, _blackboard:Blackboard) -> int:
 	#print("facing target")

@@ -39,8 +39,10 @@ const DEFAULT_MOVE_VELOCITY: float = 3000.0
 var in_cooldown := false
 
 var _local_entities = []
+var _dead: bool = false
 var team
 var enable_navigation := false
+
 
 #var right_cmd : Command
 #var left_cmd : Command
@@ -68,6 +70,12 @@ var summoning : bool:
 		summoning = value
 	get():
 		return summoning
+		
+var room : Node: 
+	set(value): 
+		room = value
+	get():
+		return room
 		
 
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer

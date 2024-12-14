@@ -30,8 +30,8 @@ func _process(delta: float) -> void:
 	#
 
 func _on_body_entered(body: Node2D) -> void:
-	print(agent,"; ", body)
-	print("self: ", agent.team, "; body: ", body.team)
+	#print(agent,"; ", body)
+	#print("self: ", agent.team, "; body: ", body.team)
 	if body == agent:
 		return
 		
