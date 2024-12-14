@@ -16,12 +16,14 @@ func _init() -> void:
 	area_entered.connect(_on_area_entered)
 
 func _ready():
-	global_position = spawn_pos + Vector2(0, -30).rotated(dir)
+	#print("spawn: ", spawn_pos)
+	global_position = spawn_pos + Vector2(0, -50).rotated(dir)
 	global_rotation = spawn_rot
 
 func _physics_process(delta):
 	var velocity = Vector2(0, -speed).rotated(dir)
 	global_position += velocity * delta
+	print(global_position)
 	if velocity == Vector2(0, 0):
 		queue_free()
 	get_tree().create_timer(life_time).timeout.connect(func(): queue_free())

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_uugi8"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_graoc"]
 [ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_wbuqo"]
-[ext_resource type="PackedScene" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="5_8ti6n"]
+[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="5_8ti6n"]
 [ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_nnlgk"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
@@ -185,7 +185,6 @@ unflipped_position = Vector2(150, -120)
 flipped_position = Vector2(-130, -120)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="calcTimer" type="Timer" parent="."]
 autostart = true
@@ -216,7 +215,7 @@ shape = SubResource("CircleShape2D_ajwg1")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8ti6n")]
-blackboard = NodePath("@Node@37736")
+blackboard = NodePath("@Node@255929")
 actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]

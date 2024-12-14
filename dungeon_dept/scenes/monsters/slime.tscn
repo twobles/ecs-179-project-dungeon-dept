@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://2a7ialugb4xq"]
+[gd_scene load_steps=19 format=3 uid="uid://2a7ialugb4xq"]
 
 [ext_resource type="Script" path="res://scripts/monsters/slime.gd" id="1_j0vjh"]
 [ext_resource type="Texture2D" uid="uid://xxfk0ex2eucd" path="res://assets/slime_sprite_test.png" id="2_gu12m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_gptp4"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_ms6af"]
 [ext_resource type="Script" path="res://scripts/entity/shooter.gd" id="5_thctx"]
+[ext_resource type="Texture2D" uid="uid://cl5gr8rnorxad" path="res://assets/slime_ball.png" id="6_xx7oq"]
 [ext_resource type="PackedScene" uid="uid://m8v2k5yq1sd4" path="res://scenes/behavior_trees/slime_behavior.tscn" id="8_3sy31"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
@@ -159,6 +160,12 @@ shape = SubResource("RectangleShape2D_pv1c6")
 [node name="Shooter" type="Node2D" parent="."]
 script = ExtResource("5_thctx")
 
+[node name="Sprite2D" type="Sprite2D" parent="Shooter"]
+visible = false
+position = Vector2(2.85714, -260)
+scale = Vector2(0.065, 1.505)
+texture = ExtResource("6_xx7oq")
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="calcTimer" type="Timer" parent="."]
@@ -189,8 +196,9 @@ shape = SubResource("CircleShape2D_718ox")
 
 [node name="Cooldown" type="Timer" parent="."]
 
-[node name="SlimeBehavior" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("8_3sy31")]
-blackboard = NodePath("@Node@237605")
+[node name="SlimeBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("8_3sy31")]
+blackboard = NodePath("@Node@256942")
+actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]
 offset_left = -11.4286

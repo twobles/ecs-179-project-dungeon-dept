@@ -10,14 +10,16 @@ var can_fire = true
 var wait_time = 1
 var position_offset = Vector2(0, -30)
 
-func _ready() -> void:							#Area2D node that is used to generate spells for boss
-	position = entity.global_position + position_offset
+func _ready() -> void:
+	position = entity.position + position_offset
 	
 func _physics_process(delta: float) -> void:
 	if entity._death:
 		queue_free()
 		return
-	position = entity.global_position + position_offset
+	global_position = entity.position + position_offset
+	#print("shooter: ", position)
+	#print("gshooter: ", global_position)
 
 func _on_slime_shoot_projectile(enemy: Node2D) -> void:
 	look_at(enemy.position)		#Locks onto character position
@@ -36,7 +38,7 @@ func _on_slime_shoot_projectile(enemy: Node2D) -> void:
 func fire(room: Node, enemy: Node2D):
 	var p = projectile.instantiate()
 	p.dir = rotation
-	p.spawn_pos = position
+	p.spawn_pos = global_position
 	p.spawn_rot = rotation
 	#p.team = enemy.team
 	room.add_child.call_deferred(p)
