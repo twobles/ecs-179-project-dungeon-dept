@@ -35,5 +35,5 @@ func fire(room: Node, enemy: Node2D):
 	p.dir = rotation
 	p.spawn_pos = position
 	p.spawn_rot = rotation
-	p.team = enemy.team
+	#p.team = enemy.team
 	room.add_child.call_deferred(p)
