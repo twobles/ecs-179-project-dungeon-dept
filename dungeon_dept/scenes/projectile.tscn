@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cl5gr8rnorxad" path="res://assets/slime_ball.png" id="2_3ufcm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dguin"]
-radius = 54.0
+radius = 85.0529
 
 [node name="Projectile" type="Area2D"]
 scale = Vector2(0.2, 0.2)

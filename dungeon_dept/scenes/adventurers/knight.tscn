@@ -3,10 +3,9 @@
 [ext_resource type="Script" path="res://scripts/adventurers/knight.gd" id="1_s5a57"]
 [ext_resource type="Texture2D" uid="uid://bmq31kr3rj2o6" path="res://assets/knight_sheet.png" id="2_202u1"]
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_uugi8"]
-[ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_awk1o"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_graoc"]
 [ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_wbuqo"]
-[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeletonBehavior.tscn" id="5_8ti6n"]
+[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="5_8ti6n"]
 [ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_nnlgk"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
@@ -217,7 +216,7 @@ shape = SubResource("CircleShape2D_ajwg1")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8ti6n")]
-blackboard = NodePath("@Node@17268")
+blackboard = NodePath("@Node@172406")
 actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]
