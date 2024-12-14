@@ -81,13 +81,19 @@ Above: Two ideation sketches of watercooler-themed slime monster sprites
 
 ### Animation and Visuals
 
-**List your assets, including their sources and licenses.**
+Drew/Animated all of the character entity assets. I only managed to fully animated the Knight and Skeleton classes due to time, the other characters have temporary animation.
+<img src="./project_doc_materials/knight_sheet.png" alt="Knight Animation Sprite Sheet for Walk/Attack">
+<img src="./project_doc_materials/skeleton_sheet3.png" alt="Skeleton Animation Sprite Sheet for Walk/Attack">
+
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
+We spent a lot of time discussing the overall narrative and how it ties into the gameplay. Spent several meeting brainstorming ideas for the different character archetypes, their functions, behaviors, and visual designs. I tried to go along with the comedic office setting/narrative with monsters having office aspects like a Slime Water Dispenser and a Big Golem that relies on a office chair. Working close with the characters incentivized me to think on the interleaving gameplay as well.
+<img src="./project_doc_materials/IMG_4476.png" alt="initial character sketches/designs">
+
 ### Game Feel and Polish
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
+I worked on the fundamental game logic/coding. Worked on Behavior Tree AI logic, Pathfinding, Melee Attacking, Shooting Projectile mechanics. Since I was so involved with the characters, I really wanted to implement their behaviors and their overall representation in the gameplay. I would have liked to have done more for character variety and iterations, but ran out of time getting the fundamental gameplay working and essential visuals.  
 
 ### Other Contributions
 
