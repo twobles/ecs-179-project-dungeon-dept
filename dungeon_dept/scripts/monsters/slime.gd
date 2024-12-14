@@ -47,12 +47,8 @@ func take_damage(d: int) -> void:
 	if 0 >= health:
 		_death = true
 		print("slime DEAD")
-<<<<<<< HEAD
 		slime_sfx.stream = preload("res://sounds/SFX/slime_sfx.wav")
 		slime_sfx.play()
-=======
-		# FIXME: do stuff like remove when dies. make death funct?
 
 func shoot():
 	emit_signal("ShootProjectile", enemy)
->>>>>>> 96985572e1284931da0ae86e55235dfa1ab5dbbc
