@@ -68,9 +68,26 @@ You should replay any **bold text** with your relevant information. Liberally us
 ### User Interface and Input
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
+
+The start menu has an option to start the game. Once the start button is clicked, a cutscene-style slideshow is played where the user can click through the slides to progress through the cutscene. After, the user is taken to a map with 3 boxes where they have a choice of choosing one. In each room, there is an 
+
 **Describe the default input configuration.**
 
+Default input configuration is keyboard and mouse:
+
+&nbsp;&nbsp;Left Mouse Button: Pressing all buttons and placing monsters down on the map
+
+&nbsp;&nbsp;Number 1 Key: Choosing skeleton
+
+&nbsp;&nbsp;Number 2 Key: Choosing slime
+
+&nbsp;&nbsp;Number 3 Key: Choosing golem
+
+&nbsp;&nbsp;Shift Key: Go back to the map
+
 **Add an entry for each platform or input style your project supports.**
+
+
 
 ### Audio
 
