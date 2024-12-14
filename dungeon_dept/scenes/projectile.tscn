@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cl5gr8rnorxad" path="res://assets/slime_ball.png" id="2_3ufcm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dguin"]
-radius = 85.0529
+radius = 80.895
 
 [node name="Projectile" type="Area2D"]
 scale = Vector2(0.2, 0.2)
@@ -17,3 +17,5 @@ texture = ExtResource("2_3ufcm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -23)
 shape = SubResource("CircleShape2D_dguin")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

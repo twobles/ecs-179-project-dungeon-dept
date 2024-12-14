@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://yeyfdxuc312v"]
+[gd_scene load_steps=6 format=3 uid="uid://daismnibuqfiq"]
 
 [ext_resource type="Script" path="res://scripts/room_manager.gd" id="1_hf87t"]
-[ext_resource type="PackedScene" uid="uid://dih1x2vtk8ln4" path="res://scenes/map.tscn" id="2_oplcp"]
-[ext_resource type="PackedScene" uid="uid://c8psmhlufab5k" path="res://scenes/room.tscn" id="2_ytdx5"]
+[ext_resource type="PackedScene" path="res://scenes/map.tscn" id="2_oplcp"]
+[ext_resource type="PackedScene" uid="uid://d03fmgpar4wam" path="res://scenes/room.tscn" id="2_ytdx5"]
 [ext_resource type="Script" path="res://scripts/adventurer_manager.gd" id="4_14o2y"]
 [ext_resource type="PackedScene" uid="uid://b350tl00c4f2w" path="res://scenes/adventurers/knight.tscn" id="5_gr6fj"]
 

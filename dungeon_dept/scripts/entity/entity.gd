@@ -170,7 +170,7 @@ func face_target() -> void:
 
 func check_melee_range() -> bool:
 	var cur_pos = global_position
-	print(cur_pos.distance_to(enemy.global_position), " <= ", melee_range)
+	#print(cur_pos.distance_to(enemy.global_position), " <= ", melee_range)
 	return cur_pos.distance_to(enemy.global_position) <= melee_range
 
 
