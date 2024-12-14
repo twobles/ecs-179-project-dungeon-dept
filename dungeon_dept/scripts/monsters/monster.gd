@@ -6,12 +6,18 @@ extends Entity
 
 var type: MonsterFactory.MonsterType
 
+
 func _ready() -> void:
 	cost = 100.0
 	#movement_speed = 4000.0
 	team = 1
 	facing = Facing.LEFT
 	super()
+	
+
+func _process(_delta: float) -> void:
+	super(_delta)
+	
 
 func face_target() -> void:
 	var cur_pos = global_position

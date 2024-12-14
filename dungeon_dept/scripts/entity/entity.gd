@@ -39,7 +39,7 @@ const DEFAULT_MOVE_VELOCITY: float = 3000.0
 var in_cooldown := false
 
 var _local_entities = []
-var _dead: bool = false
+var _death: bool = false
 var team
 var enable_navigation := false
 
@@ -108,6 +108,12 @@ func actor_setup() -> void:
 func set_target_position(target_pos: Vector2) -> void:
 	#print("target_pos: ", target_pos)
 	navigation_agent_2d.target_position = target_pos
+	
+	
+func _process(_delta: float) -> void:
+	if _death:
+		self.queue_free()
+		return
 
 
 func _physics_process(delta: float) -> void: 

@@ -5,7 +5,6 @@ signal ShootProjectile(enemy:Node2D)
 
 @onready var slime_sfx: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var damage_taken_indicator: Label = $DamageTaken
-var _death: bool = false
 var dam_ind_delay: int = 0
 var prev_damage_taken: int = 0
 var alignment: int = 0
@@ -31,6 +30,7 @@ func _process(_delta: float) -> void:
 		$HurtBox/CollisionShape2D.disabled = true
 		#$HitBox/CollisionShape2D.disabled = true
 		return
+	super(_delta)
 	
 	if dam_ind_delay > 0:
 		damage_taken_indicator.text = str(prev_damage_taken)

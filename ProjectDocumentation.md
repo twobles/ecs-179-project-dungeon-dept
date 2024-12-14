@@ -13,8 +13,22 @@ It’s another beautiful day of work at the Department of Dungeon Design! It’s
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
+### Dungeon Map
+![Map screen](./project_doc_materials/map_screen.png)
+On the map screen, you can view the progression of rooms that the adventuring parties would travel through. Click on a room to view it and populate it with monsters.
 
+### Dungeon Rooms
+![Room screen](./project_doc_materials/room_screen.png)
+On each room screen, you can select a monster using the number keys:
+1. Skeleton
+2. Slime
+3. Golem
+
+Click anywhere in the room to place that monster down. Each monster costs a certain amount toward the room's total capacity. When you select a monster, you can view its cost and its range. When you're done designing a room, click on the "READY" button to activate the battle phase. You can also press shift to reopen the map.
+
+#### Battle
+![Battle phase of dungeon rooms](./project_doc_materials/battle_phase.png)
+Once you press "READY", the adventurers enter the room! You can watch your monsters fight the adventuring party, and see how much money you earn from the battle in real time.
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
