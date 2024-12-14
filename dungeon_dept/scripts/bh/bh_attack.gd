@@ -1,4 +1,5 @@
-class_name Attack extends ActionLeaf
+class_name Attack 
+extends ActionLeaf
 
 func tick(actor:Node, _blackboard:Blackboard) -> int:
 	actor.toggle_navigation(false)

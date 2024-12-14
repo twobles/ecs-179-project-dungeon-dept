@@ -32,6 +32,8 @@ func deduct_capacity(cost: int) -> bool:
 
 func _on_build_ui_battle_start() -> void:
 	for monster in monsters:
+		print(get_parent())
+		monster.room = get_parent()
 		monster.process_mode = Node.PROCESS_MODE_INHERIT
 	battling = true
 	emit_signal("in_battle")

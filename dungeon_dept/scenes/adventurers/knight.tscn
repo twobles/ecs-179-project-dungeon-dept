@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://b350tl00c4f2w"]
+[gd_scene load_steps=19 format=3 uid="uid://b350tl00c4f2w"]
 
 [ext_resource type="Script" path="res://scripts/adventurers/knight.gd" id="1_s5a57"]
 [ext_resource type="Texture2D" uid="uid://bmq31kr3rj2o6" path="res://assets/knight_sheet.png" id="2_202u1"]
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_uugi8"]
+[ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_awk1o"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_graoc"]
-[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeletonBehavior.tscn" id="5_8ti6n"]
+[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="5_8ti6n"]
+[ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_wuy1k"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
 length = 0.001
@@ -44,7 +46,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.166667, 0.333333, 0.533333, 0.6, 0.633333, 0.733333, 0.9, 1.06667, 1.16667),
+"times": PackedFloat32Array(0, 0.0333333, 0.166667, 0.333333, 0.533333, 0.6, 0.633333, 0.7, 0.866667, 1.03333, 1.16667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
@@ -131,6 +133,10 @@ radius = 110.761
 [sub_resource type="CircleShape2D" id="CircleShape2D_ajwg1"]
 radius = 1000.01
 
+[sub_resource type="LabelSettings" id="LabelSettings_s1msu"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+
 [node name="Knight" type="CharacterBody2D"]
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_s5a57")
@@ -150,21 +156,28 @@ libraries = {
 }
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(17.1429, -28.5714)
+visible = false
+position = Vector2(2.85714, -28.5714)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("CapsuleShape2D_hsmnu")
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 position = Vector2(-20, 0)
+script = ExtResource("4_awk1o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
 position = Vector2(18.6606, -110.804)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_crcio")
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
+script = ExtResource("5_wuy1k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
 position = Vector2(150, -120)
 scale = Vector2(0.999998, 0.999998)
 shape = SubResource("RectangleShape2D_ngtng")
@@ -179,6 +192,7 @@ debug_enabled = true
 autostart = true
 
 [node name="spacer_radius" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -49)
 collision_layer = 7
 collision_mask = 7
@@ -188,9 +202,11 @@ position = Vector2(15, 11.5)
 shape = SubResource("CircleShape2D_qkfe3")
 
 [node name="Spacer" type="Node2D" parent="."]
+visible = false
 position = Vector2(73, 47)
 
 [node name="Senses" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -47)
 script = ExtResource("4_graoc")
 
@@ -201,8 +217,16 @@ shape = SubResource("CircleShape2D_ajwg1")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8ti6n")]
-blackboard = NodePath("@Node@84472")
+blackboard = NodePath("@Node@162063")
 actor = NodePath("..")
+
+[node name="DamageTaken" type="Label" parent="."]
+offset_left = -42.8571
+offset_top = -311.429
+offset_right = 8.14286
+offset_bottom = -269.429
+text = "999"
+label_settings = SubResource("LabelSettings_s1msu")
 
 [connection signal="CharacterDirectionChange" from="." to="Sprite2D" method="_on_knight_character_direction_change"]
 [connection signal="CharacterDirectionChange" from="." to="HitBox/CollisionShape2D" method="_on_knight_character_direction_change"]

@@ -1,4 +1,5 @@
-class_name StartNavigation extends ActionLeaf
+class_name StartNavigation 
+extends ActionLeaf
 
 func tick(actor:Node, _blackboard:Blackboard) -> int:
 	#print("navigating")
