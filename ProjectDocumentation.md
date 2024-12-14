@@ -6,7 +6,7 @@ It’s another beautiful day of work at the Department of Dungeon Design! It’s
 
 ## Project Resources
 
-[Web-playable version of your game (FIXME)](https://lmukar.itch.io/department-of-dungeon-design)  
+[Web-playable version of your game](https://lmukar.itch.io/department-of-dungeon-design)  
 [Trailer](https://drive.google.com/file/d/1bx2WpOICYy6TbZIUmMJ08n9ODcFkNQXx/view?usp=sharing)   
 [Press Kit](#press-kit-and-trailer)  
 [Initial Plan](https://docs.google.com/document/d/1seP3CGc7eH109oYLATlTatLcgkJYDgn-x0SzhATfhZY/edit?usp=sharing)  
