@@ -18,6 +18,8 @@ It’s another beautiful day of work at the Department of Dungeon Design! It’s
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
+**FIXME**: include links and credits to background assets
+
 # Roles #
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
@@ -35,16 +37,31 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ### Producer
 
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
+*Ideation* - Actively participated in initial game ideation, created sketches and worked with team to develop ideas
+
+<img src="./project_doc_materials/ezren/sketch1.jpg" alt="Sketch thumbnails of play phases" height="500">
+Sketch thumbnails of play phases
+
+<img src="./project_doc_materials/ezren/sketch2.jpg" alt="Sketches and notes of game screens" height="500">
+Sketches and notes of game screens
+
+<img src="./project_doc_materials/ezren/watercoolerslime1-sketch.png" alt="digital sketch sprite of watercooler-themed cube slime monster">
+<img src="./project_doc_materials/ezren/watercoolerslime2-sketch.png" alt="digital sketch sprite of watercooler-shaped slime monster">
+Two ideation sketches of watercooler-themed slime monster sprites
+
+*Initial Schedule* - Created rough schedule in initial plan
+
+*Team meetings* - Scheduled team meetings over Discord to check progress, created [meeting notes](https://docs.google.com/document/d/1NNRejOOlFjJQT2Wy9uCQfDIvcaMyyb9y9IaMTauezOU/edit?usp=sharing), managed team progress
 
 ### Narrative Design
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+*Money System* - Developed money system and [moneyengine.md](./dungeon_dept/scripts/global/money_engine.gd), to act as scoring system incentivizing play that ties into corporate narrative
+
+*Opening cutscene* - Implemented [opening cutscene](./dungeon_dept/scenes/cutscene.tscn) to give backstory and prologue to players, drew rough draft sketches and wrote narration
 
 ### Other Contributions
 
-**Other contributions outside roles. Delete section if not applicable**
-
+*Damage mechanics* - For each entity scene (knight, skeleton, slime, golem): Worked on take_damage functions (e.g. [func take_damage in knight.gd](https://github.com/twobles/ecs-179-project-dungeon-dept/blob/63dba52300e3ed61025ec35cca247d69ac9c2e10/dungeon_dept/scripts/adventurers/knight.gd#L25)), added and implemented DamageTaken label node for indicating amount of damage taken
 
 ## Ivan Hoang ##
 
