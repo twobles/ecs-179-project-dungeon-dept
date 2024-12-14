@@ -5,8 +5,9 @@
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_uugi8"]
 [ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_awk1o"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_graoc"]
-[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="5_8ti6n"]
-[ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_wuy1k"]
+[ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_wbuqo"]
+[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeletonBehavior.tscn" id="5_8ti6n"]
+[ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_nnlgk"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
 length = 0.001
@@ -133,7 +134,7 @@ radius = 110.761
 [sub_resource type="CircleShape2D" id="CircleShape2D_ajwg1"]
 radius = 1000.01
 
-[sub_resource type="LabelSettings" id="LabelSettings_s1msu"]
+[sub_resource type="LabelSettings" id="LabelSettings_8746d"]
 font_size = 30
 font_color = Color(1, 0, 0, 1)
 
@@ -164,7 +165,7 @@ shape = SubResource("CapsuleShape2D_hsmnu")
 [node name="HurtBox" type="Area2D" parent="."]
 visible = false
 position = Vector2(-20, 0)
-script = ExtResource("4_awk1o")
+script = ExtResource("4_wbuqo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 visible = false
@@ -173,8 +174,7 @@ scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_crcio")
 
 [node name="HitBox" type="Area2D" parent="."]
-visible = false
-script = ExtResource("5_wuy1k")
+script = ExtResource("5_nnlgk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 visible = false
@@ -217,16 +217,16 @@ shape = SubResource("CircleShape2D_ajwg1")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8ti6n")]
-blackboard = NodePath("@Node@162063")
+blackboard = NodePath("@Node@17268")
 actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]
-offset_left = -42.8571
-offset_top = -311.429
-offset_right = 8.14286
-offset_bottom = -269.429
+offset_left = -37.1429
+offset_top = -282.857
+offset_right = 13.8571
+offset_bottom = -240.857
 text = "999"
-label_settings = SubResource("LabelSettings_s1msu")
+label_settings = SubResource("LabelSettings_8746d")
 
 [connection signal="CharacterDirectionChange" from="." to="Sprite2D" method="_on_knight_character_direction_change"]
 [connection signal="CharacterDirectionChange" from="." to="HitBox/CollisionShape2D" method="_on_knight_character_direction_change"]

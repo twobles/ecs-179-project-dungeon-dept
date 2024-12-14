@@ -221,7 +221,7 @@ shape = SubResource("CircleShape2D_je2qm")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_36vcm")]
-blackboard = NodePath("@Node@116920")
+blackboard = NodePath("@Node@17271")
 actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]
