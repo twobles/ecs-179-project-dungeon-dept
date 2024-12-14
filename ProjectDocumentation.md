@@ -6,7 +6,7 @@ It’s another beautiful day of work at the Department of Dungeon Design! It’s
 
 ## Project Resources
 
-[Web-playable version of your game](https://lmukar.itch.io/department-of-dungeon-design)  
+[Web-playable version](https://lmukar.itch.io/department-of-dungeon-design)  
 [Trailer](https://drive.google.com/file/d/1bx2WpOICYy6TbZIUmMJ08n9ODcFkNQXx/view?usp=sharing)   
 [Press Kit](#press-kit-and-trailer)  
 [Initial Plan](https://docs.google.com/document/d/1seP3CGc7eH109oYLATlTatLcgkJYDgn-x0SzhATfhZY/edit?usp=sharing)  
@@ -97,9 +97,7 @@ We spent a lot of time discussing the overall narrative and how it ties into the
 
 I worked on the fundamental game logic/coding. Worked on Behavior Tree AI logic, Pathfinding, Melee Attacking, Shooting Projectile mechanics. We use BeeHave behavior trees to allow basic selecting/sequencing to search Nearby Entities -> if there are Enemies to target, set Target -> Pathfinding to navigate toward enemy -> if enemy is in range to attack, attack enemies -> if enemy dead, re-search nearby Enemies. Had plans for improved navigation to account for entity crowding/positioning, but ran out of time. Developed character structure anatomy such as sprites, hitboxes, and sensors. Started developing Projectile based attack functions which are able to take in the scene data, such as enemy target and positioning, to instantiate projectiles and aiming. 
 
-Since I was so involved with the characters, I really wanted to implement their behaviors and their overall presentation in the gameplay. I would have liked to have done more for character variety and iterations, but ran out of time getting the fundamental gameplay working and essential visuals. 
-
-Possible ideas for Slime were crowd control or area of effects for debuff/buff mechanics. Golem heavy hitting for stunning/knockback. Adventurer types such as Archer, Mage, Healer, etc.
+Since I was so involved with the characters, I really wanted to implement their behaviors and their overall presentation in the gameplay. I would have liked to have done more for character variety and iterations. Possible ideas for Slime were crowd control or area of effects for debuff/buff mechanics. Golem heavy hitting for stunning/knockback. Adventurer types such as Archer, Mage, Healer, etc. We didn't get to execute macro-gameplay ideas for the dungeon layout, unfortunately ran out of time getting the fundamental gameplay working and essential visuals, but hopefully can develop more in the future.
 
 ### Other Contributions
 
