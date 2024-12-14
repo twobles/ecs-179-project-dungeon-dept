@@ -130,13 +130,13 @@ collision_mask = 5
 script = ExtResource("1_j0vjh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-48.5714, -120)
+position = Vector2(-50, -120)
 texture = ExtResource("2_gu12m")
 hframes = 3
 vframes = 2
 script = ExtResource("3_mf5vr")
-unflipped_position = Vector2(-18, -130)
-flipped_position = Vector2(53, -130)
+unflipped_position = Vector2(70, -120)
+flipped_position = Vector2(-50, -120)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -197,7 +197,7 @@ shape = SubResource("CircleShape2D_718ox")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SlimeBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("8_3sy31")]
-blackboard = NodePath("@Node@256942")
+blackboard = NodePath("@Node@262568")
 actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]
@@ -208,6 +208,7 @@ offset_bottom = -269.429
 text = "999"
 label_settings = SubResource("LabelSettings_16t1w")
 
+[connection signal="CharacterDirectionChange" from="." to="Sprite2D" method="_on_slime_character_direction_change"]
 [connection signal="ShootProjectile" from="." to="Shooter" method="_on_slime_shoot_projectile"]
 [connection signal="area_entered" from="Senses" to="Senses" method="_on_area_entered"]
 [connection signal="area_exited" from="Senses" to="Senses" method="_on_area_exited"]

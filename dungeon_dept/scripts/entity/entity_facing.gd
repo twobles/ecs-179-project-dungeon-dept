@@ -21,3 +21,7 @@ func _on_golem_character_direction_change(facing: Entity.Facing) -> void:
 func _on_knight_character_direction_change(facing: Entity.Facing) -> void:
 	flip(facing)
 	#print("knight")
+
+
+func _on_slime_character_direction_change(facing: Entity.Facing) -> void:
+	flip(facing)
