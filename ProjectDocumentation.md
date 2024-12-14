@@ -6,7 +6,7 @@ It’s another beautiful day of work at the Department of Dungeon Design! It’s
 
 ## Project Resources
 
-[Web-playable version of your game (FIXME)](https://itch.io/)  
+[Web-playable version of your game (FIXME)](https://lmukar.itch.io/department-of-dungeon-design)  
 [Trailer](https://drive.google.com/file/d/1bx2WpOICYy6TbZIUmMJ08n9ODcFkNQXx/view?usp=sharing)   
 [Press Kit](#press-kit-and-trailer)  
 [Initial Plan](https://docs.google.com/document/d/1seP3CGc7eH109oYLATlTatLcgkJYDgn-x0SzhATfhZY/edit?usp=sharing)  
@@ -81,19 +81,21 @@ Above: Two ideation sketches of watercooler-themed slime monster sprites
 
 ### Animation and Visuals
 
-Drew/Animated all of the character entity assets. I only managed to fully animated the Knight and Skeleton classes due to time, the other characters have temporary animation.
+Drew/Animated all of the character entity assets. I only managed to fully animate the Knight and Skeleton classes due to time, the other characters have temporary animation for now.
 <img src="./project_doc_materials/knight_sheet.png" alt="Knight Animation Sprite Sheet for Walk/Attack">
 <img src="./project_doc_materials/skeleton_sheet3.png" alt="Skeleton Animation Sprite Sheet for Walk/Attack">
+<img src="./project_doc_materials/slime_sprite_test.png" alt="Slime Animation Sprite Sheet for Walk/Attack">
+<img src="./project_doc_materials/golem_sprite_test.png" alt="Golem Animation Sprite Sheet for Walk/Attack">
 
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-We spent a lot of time discussing the overall narrative and how it ties into the gameplay. Spent several meeting brainstorming ideas for the different character archetypes, their functions, behaviors, and visual designs. I tried to go along with the comedic office setting/narrative with monsters having office aspects like a Slime Water Dispenser and a Big Golem that relies on a office chair. Working close with the characters incentivized me to think on the interleaving gameplay as well.
+We spent a lot of time discussing the overall narrative and how it ties into the gameplay. Spent several meetings brainstorming ideas for the different character archetypes, their functions, behaviors, and visual designs. I tried to go along with the comedic office setting/narrative with monsters having office aspects like a Slime Water Dispenser and a Big Golem that relies on a office chair. Working close with the characters incentivized me to think on the interleaving gameplay as well.
 <img src="./project_doc_materials/IMG_4476.png" alt="initial character sketches/designs">
 
 ### Game Feel and Polish
 
-I worked on the fundamental game logic/coding. Worked on Behavior Tree AI logic, Pathfinding, Melee Attacking, Shooting Projectile mechanics. Since I was so involved with the characters, I really wanted to implement their behaviors and their overall representation in the gameplay. I would have liked to have done more for character variety and iterations, but ran out of time getting the fundamental gameplay working and essential visuals.  
+I worked on the fundamental game logic/coding. Worked on Behavior Tree AI logic, Pathfinding, Melee Attacking, Shooting Projectile mechanics. Since I was so involved with the characters, I really wanted to implement their behaviors and their overall presentation in the gameplay. I would have liked to have done more for character variety and iterations, but ran out of time getting the fundamental gameplay working and essential visuals.  
 
 ### Other Contributions
 
