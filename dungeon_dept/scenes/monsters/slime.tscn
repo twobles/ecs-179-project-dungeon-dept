@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_ms6af"]
 [ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_c6k7r"]
 [ext_resource type="Script" path="res://scripts/entity/shooter.gd" id="5_thctx"]
-[ext_resource type="PackedScene" uid="uid://m8v2k5yq1sd4" path="res://scenes/behavior_trees/slime_behavior.tscn" id="8_3sy31"]
+[ext_resource type="PackedScene" path="res://scenes/behavior_trees/slime_behavior.tscn" id="8_3sy31"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
 length = 0.001
@@ -230,7 +230,7 @@ shape = SubResource("CircleShape2D_718ox")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SlimeBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("8_3sy31")]
-blackboard = NodePath("@Node@176688")
+blackboard = NodePath("@Node@17265")
 actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c10dfaqjl6ceo"]
+[gd_scene load_steps=7 format=3 uid="uid://c10dfaqjl6ceo"]
 
 [ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_jt72c"]
 [ext_resource type="Texture2D" uid="uid://bcpqnd13n5vag" path="res://assets/cutscene_shots/shot1_exterior1.png" id="2_mwrug"]
 [ext_resource type="FontFile" uid="uid://ni4di2byl52v" path="res://assets/fonts/DUNGRG__.TTF" id="3_8tu1t"]
+[ext_resource type="AudioStream" uid="uid://cxo6ocf6t6l18" path="res://sounds/Click Sound Pack/Click1B.ogg" id="4_ewjng"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ngdkc"]
 font = ExtResource("3_8tu1t")
@@ -79,3 +80,6 @@ offset_top = -1978.33
 offset_right = 906.4
 offset_bottom = -1807.33
 color = Color(0.996078, 1, 0.905882, 0.901961)
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ewjng")

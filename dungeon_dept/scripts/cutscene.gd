@@ -19,6 +19,7 @@ var shots_text = [
 var current_shot: int = 0
 @onready var shot_display: Sprite2D = $Sprite2D
 @onready var dialogue_display: Label = $DialogueBox/Dialogue
+@onready var click_player: AudioStreamPlayer = $ClickPlayer
 
 
 func _ready() -> void:
@@ -28,6 +29,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("place"):
+		click_player.play()
 		current_shot += 1
 		if current_shot >= shots.size():
 			get_tree().change_scene_to_file(GAME_SCENE)
