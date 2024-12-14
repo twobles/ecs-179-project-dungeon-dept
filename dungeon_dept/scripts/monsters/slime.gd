@@ -23,6 +23,12 @@ func _ready() -> void:
 	
 	
 func _process(_delta: float) -> void:
+	if _death:
+		visible = false
+		$HurtBox/CollisionShape2D.disabled = true
+		$HitBox/CollisionShape2D.disabled = true
+		return
+	
 	if dam_ind_delay > 0:
 		damage_taken_indicator.text = str(prev_damage_taken)
 		dam_ind_delay -= 1
@@ -38,4 +44,5 @@ func take_damage(d: int) -> void:
 	if 0 >= health:
 		_death = true
 		print("slime DEAD")
-		# FIXME: do stuff like remove when dies. make death funct?
+		slime_sfx.stream = preload("res://sounds/SFX/slime_sfx.wav")
+		slime_sfx.play()

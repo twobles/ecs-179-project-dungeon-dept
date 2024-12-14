@@ -2,6 +2,7 @@ class_name Knight
 extends Adventurer
 
 
+@onready var knight_sfx: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var damage_taken_indicator: Label = $DamageTaken
 var _death: bool = false
 var dam_ind_delay: int = 0
@@ -15,6 +16,12 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if _death:
+		visible = false
+		$HurtBox/CollisionShape2D.disabled = true
+		$HitBox/CollisionShape2D.disabled = true
+		return
+	
 	if dam_ind_delay > 0:
 		damage_taken_indicator.text = str(prev_damage_taken)
 		dam_ind_delay -= 1
@@ -31,4 +38,5 @@ func take_damage(d: int) -> void:
 	if 0 >= health:
 		_death = true
 		print("knight DEAD")
-		# FIXME: do stuff like remove knight when knight dies. make death funct?
+		knight_sfx.stream = preload("res://sounds/Click Sound Pack/Click5.ogg")
+		knight_sfx.play()
