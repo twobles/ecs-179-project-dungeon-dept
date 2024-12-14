@@ -16,7 +16,7 @@ func _init() -> void:
 	area_entered.connect(_on_area_entered)
 
 func _ready():
-	global_position = spawn_pos + Vector2(0, -20).rotated(dir)
+	global_position = spawn_pos + Vector2(0, -30).rotated(dir)
 	global_rotation = spawn_rot
 
 func _physics_process(delta):
