@@ -230,8 +230,7 @@ shape = SubResource("CircleShape2D_718ox")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SlimeBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("8_3sy31")]
-scale = Vector2(1, 1)
-blackboard = NodePath("@Node@170575")
+blackboard = NodePath("@Node@176688")
 actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]
