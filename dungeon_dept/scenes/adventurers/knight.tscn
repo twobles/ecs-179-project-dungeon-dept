@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b350tl00c4f2w"]
+[gd_scene load_steps=17 format=3 uid="uid://b350tl00c4f2w"]
 
 [ext_resource type="Script" path="res://scripts/adventurers/knight.gd" id="1_s5a57"]
 [ext_resource type="Texture2D" uid="uid://bmq31kr3rj2o6" path="res://assets/knight_sheet.png" id="2_202u1"]
@@ -131,6 +131,10 @@ radius = 110.761
 [sub_resource type="CircleShape2D" id="CircleShape2D_ajwg1"]
 radius = 1000.01
 
+[sub_resource type="LabelSettings" id="LabelSettings_8746d"]
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+
 [node name="Knight" type="CharacterBody2D"]
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_s5a57")
@@ -201,8 +205,16 @@ shape = SubResource("CircleShape2D_ajwg1")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8ti6n")]
-blackboard = NodePath("@Node@84472")
+blackboard = NodePath("@Node@17268")
 actor = NodePath("..")
+
+[node name="DamageTaken" type="Label" parent="."]
+offset_left = -42.8571
+offset_top = -285.714
+offset_right = 8.14282
+offset_bottom = -243.714
+text = "999"
+label_settings = SubResource("LabelSettings_8746d")
 
 [connection signal="CharacterDirectionChange" from="." to="Sprite2D" method="_on_knight_character_direction_change"]
 [connection signal="CharacterDirectionChange" from="." to="HitBox/CollisionShape2D" method="_on_knight_character_direction_change"]
