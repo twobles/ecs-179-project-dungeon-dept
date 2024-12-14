@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_bxa0m"]
 [ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="4_oo4yg"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_twdv6"]
-[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="5_36vcm"]
+[ext_resource type="PackedScene" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="5_36vcm"]
 [ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="5_h7xal"]
 
 [sub_resource type="Animation" id="Animation_kl8h4"]
@@ -221,13 +221,14 @@ shape = SubResource("CircleShape2D_je2qm")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_36vcm")]
-blackboard = NodePath("@Node@17271")
+blackboard = NodePath("@Node@37889")
 actor = NodePath("..")
 
 [node name="DamageTaken" type="Label" parent="."]
-offset_top = -180.0
-offset_right = 51.0
-offset_bottom = -138.0
+offset_left = 65.0
+offset_top = -177.5
+offset_right = 99.0
+offset_bottom = -149.5
 text = "999"
 label_settings = SubResource("LabelSettings_jyif8")
 

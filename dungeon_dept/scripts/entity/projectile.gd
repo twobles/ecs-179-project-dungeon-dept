@@ -29,7 +29,9 @@ func _physics_process(delta):
 func _on_area_entered(hurtbox:HurtBox) -> void:
 	print("hit: ", hurtbox.owner)
 	print("shooter: ", owner)
-	hurtbox.owner.take_damage(damage)
+	#hurtbox.owner.take_damage(damage)
+	if hurtbox.get_owner().has_method("take_damage") and hurtbox.get_owner().alignment != 0:
+		hurtbox.owner.take_damage(damage)
 	queue_free()
 		
 	

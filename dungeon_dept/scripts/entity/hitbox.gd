@@ -11,5 +11,5 @@ func _init() -> void:
 
 
 func _on_area_entered(hurtbox: HurtBox) -> void:
-	if hurtbox.get_owner().has_method("take_damage"):
+	if hurtbox.get_owner().has_method("take_damage") and hurtbox.get_owner().alignment != owner.alignment:
 		hurtbox.owner.take_damage(damage)

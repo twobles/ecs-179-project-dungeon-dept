@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cc7qvm72c0fpe" path="res://assets/skeleton_sheet3.png" id="2_hvyhe"]
 [ext_resource type="Script" path="res://scripts/entity/hurtbox.gd" id="2_xr5po"]
 [ext_resource type="Script" path="res://scripts/entity/hitbox.gd" id="3_1lcpf"]
-[ext_resource type="PackedScene" uid="uid://d26dsf0bldvuh" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="3_b00pm"]
+[ext_resource type="PackedScene" path="res://scenes/behavior_trees/skeleton_behavior.tscn" id="3_b00pm"]
 [ext_resource type="Script" path="res://scripts/entity/entity_facing.gd" id="3_x1scl"]
 [ext_resource type="Script" path="res://scripts/entity/senses.gd" id="4_ux1sv"]
 
@@ -198,7 +198,7 @@ shape = SubResource("CircleShape2D_qqfqd")
 position = Vector2(73, 47)
 
 [node name="SkeletonBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("3_b00pm")]
-blackboard = NodePath("@Node@177196")
+blackboard = NodePath("@Node@38036")
 actor = NodePath("..")
 
 [node name="Senses" type="Area2D" parent="."]

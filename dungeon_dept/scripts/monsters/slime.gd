@@ -8,6 +8,7 @@ signal ShootProjectile(enemy:Node2D)
 var _death: bool = false
 var dam_ind_delay: int = 0
 var prev_damage_taken: int = 0
+var alignment: int = 0
 
 
 func _init() -> void:
