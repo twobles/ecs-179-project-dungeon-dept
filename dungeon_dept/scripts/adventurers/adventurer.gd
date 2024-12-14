@@ -6,6 +6,11 @@ func _ready() -> void:
 	team = 0
 	melee_range = 30
 	super()
+	
+
+func _process(_delta: float) -> void:
+	super(_delta)
+
 
 func face_target() -> void:
 	var cur_pos = global_position
