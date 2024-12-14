@@ -95,7 +95,11 @@ We spent a lot of time discussing the overall narrative and how it ties into the
 
 ### Game Feel and Polish
 
-I worked on the fundamental game logic/coding. Worked on Behavior Tree AI logic, Pathfinding, Melee Attacking, Shooting Projectile mechanics. Since I was so involved with the characters, I really wanted to implement their behaviors and their overall presentation in the gameplay. I would have liked to have done more for character variety and iterations, but ran out of time getting the fundamental gameplay working and essential visuals.  
+I worked on the fundamental game logic/coding. Worked on Behavior Tree AI logic, Pathfinding, Melee Attacking, Shooting Projectile mechanics. We use BeeHave behavior trees to allow basic selecting/sequencing to search Nearby Entities -> if there are Enemies to target, set Target -> Pathfinding to navigate toward enemy -> if enemy is in range to attack, attack enemies -> if enemy dead, re-search nearby Enemies. Had plans for improved navigation to account for entity crowding/positioning, but ran out of time. Developed character structure anatomy such as sprites, hitboxes, and sensors. Started developing Projectile based attack functions which are able to take in the scene data, such as enemy target and positioning, to instantiate projectiles and aiming. 
+
+Since I was so involved with the characters, I really wanted to implement their behaviors and their overall presentation in the gameplay. I would have liked to have done more for character variety and iterations, but ran out of time getting the fundamental gameplay working and essential visuals. 
+
+Possible ideas for Slime were crowd control or area of effects for debuff/buff mechanics. Golem heavy hitting for stunning/knockback. Adventurer types such as Archer, Mage, Healer, etc.
 
 ### Other Contributions
 
