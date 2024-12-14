@@ -69,25 +69,25 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 
-The start menu has an option to start the game. Once the start button is clicked, a cutscene-style slideshow is played where the user can click through the slides to progress through the cutscene. After, the user is taken to a map with 3 boxes where they have a choice of choosing one. In each room, there is an 
+The start menu has an option to start the game. Once the start button is clicked, a cutscene-style slideshow is played where the user can click through the slides to progress through the cutscene. After, the user is taken to a map with 3 boxes where they have a choice of choosing one. In each room, there is a build menu UI where the user can place down a combination of 3 monsters. Utilizing the 1, 2, and 3 number keys, the respective monsters will be shown and by pressing the left mouse button, they will be placed down within the board area. The user can also choose to clear the monster chosen by pressing the backspace key. Once the user is finished placing down monster entities, they can click ready and the battle scene will begin. The user can also go through different rooms by clicking the shift key and selecting the room in the map.
 
 **Describe the default input configuration.**
 
-Default input configuration is keyboard and mouse:
-
-&nbsp;&nbsp;Left Mouse Button: Pressing all buttons and placing monsters down on the map
-
-&nbsp;&nbsp;Number 1 Key: Choosing skeleton
-
-&nbsp;&nbsp;Number 2 Key: Choosing slime
-
-&nbsp;&nbsp;Number 3 Key: Choosing golem
-
-&nbsp;&nbsp;Shift Key: Go back to the map
+The default input configuration is keyboard and mouse. 
 
 **Add an entry for each platform or input style your project supports.**
 
+&nbsp;&nbsp;&nbsp;&nbsp;Left Mouse Button: Pressing all buttons and placing monsters down on the map
 
+&nbsp;&nbsp;&nbsp;&nbsp;Number 1 Key: Choosing skeleton
+
+&nbsp;&nbsp;&nbsp;&nbsp;Number 2 Key: Choosing slime
+
+&nbsp;&nbsp;&nbsp;&nbsp;Number 3 Key: Choosing golem
+
+&nbsp;&nbsp;&nbsp;&nbsp;Backspace Key: Clearing shown monster
+
+&nbsp;&nbsp;&nbsp;&nbsp;Shift Key: Go back to the map
 
 ### Audio
 
