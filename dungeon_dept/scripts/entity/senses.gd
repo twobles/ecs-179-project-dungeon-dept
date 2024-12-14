@@ -49,7 +49,11 @@ func _on_body_exited(body: Node2D) -> void:
 	
 func get_enemy() -> Node2D:
 	if current_enemies.size() > 0:
+		print("getting: ", current_enemies[0])
+		var enemy = current_enemies[0]
 		#print("getting: ", current_enemies[0])
-		return current_enemies[0]
+		current_entities.remove_at(0)
+		current_enemies.remove_at(0)	
+		return enemy
 	else:
 		return null

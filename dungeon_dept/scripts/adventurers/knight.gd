@@ -13,7 +13,7 @@ var alignment: int = 1
 func _ready() -> void:
 	melee_range = 40
 	damage_taken_indicator.text = " "
-	movement_speed = 1000
+	#movement_speed = 1000
 	super()
 
 

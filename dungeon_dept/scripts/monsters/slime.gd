@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 	if _death:
 		visible = false
 		$HurtBox/CollisionShape2D.disabled = true
-		$HitBox/CollisionShape2D.disabled = true
+		#$HitBox/CollisionShape2D.disabled = true
 		return
 	
 	if dam_ind_delay > 0:

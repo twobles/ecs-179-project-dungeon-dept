@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d26dsf0bldvuh"]
+[gd_scene load_steps=14 format=3 uid="uid://d26dsf0bldvuh"]
 
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_c2tek"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector_reactive.gd" id="2_fgiwo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="5_e5yna"]
 [ext_resource type="Script" path="res://scripts/bh/bh_set_target.gd" id="6_na3gu"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="7_di3u3"]
+[ext_resource type="Script" path="res://scripts/bh/bh_enemy_alive.gd" id="7_tftj0"]
 [ext_resource type="Script" path="res://scripts/bh/bh_check_melee_range.gd" id="8_r536m"]
 [ext_resource type="Script" path="res://scripts/bh/bh_attack.gd" id="9_422h6"]
 [ext_resource type="Script" path="res://scripts/bh/bh_start_navigation.gd" id="10_dtyni"]
@@ -35,6 +36,9 @@ script = ExtResource("5_e5yna")
 
 [node name="InRange" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite"]
 script = ExtResource("3_u7oah")
+
+[node name="ConditionLeaf" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange"]
+script = ExtResource("7_tftj0")
 
 [node name="CheckMeleeRange" type="Node" parent="SelectorReactiveComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange"]
 script = ExtResource("8_r536m")

@@ -110,7 +110,7 @@ radius = 16.25
 height = 37.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv1c6"]
-size = Vector2(92.5, 150)
+size = Vector2(92.5, 105.714)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xvpgu"]
 radius = 60.013
@@ -152,7 +152,7 @@ shape = SubResource("CapsuleShape2D_owpic")
 script = ExtResource("4_gptp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(15, -73.75)
+position = Vector2(15, -67.1429)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_pv1c6")
 
@@ -179,6 +179,7 @@ visible = false
 position = Vector2(73, 47)
 
 [node name="Senses" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -47)
 script = ExtResource("4_ms6af")
 
@@ -188,9 +189,8 @@ shape = SubResource("CircleShape2D_718ox")
 
 [node name="Cooldown" type="Timer" parent="."]
 
-[node name="SlimeBehavior" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("8_3sy31")]
-blackboard = NodePath("@Node@228376")
-actor = NodePath("..")
+[node name="SlimeBehavior" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("8_3sy31")]
+blackboard = NodePath("@Node@237605")
 
 [node name="DamageTaken" type="Label" parent="."]
 offset_left = -11.4286

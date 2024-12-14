@@ -14,6 +14,9 @@ func _ready() -> void:							#Area2D node that is used to generate spells for bo
 	position = entity.global_position + position_offset
 	
 func _physics_process(delta: float) -> void:
+	if entity._death:
+		queue_free()
+		return
 	position = entity.global_position + position_offset
 
 func _on_slime_shoot_projectile(enemy: Node2D) -> void:
