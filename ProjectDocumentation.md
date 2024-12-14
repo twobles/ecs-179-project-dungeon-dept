@@ -176,15 +176,23 @@ In the trailer I wanted to make audiences feel the potential of the game. I incl
 
 ### Game Logic
 
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
+**Build UI Logic**
+<br>
+I implemented the build UI logic that allows the user to place monsters. I used a factory design pattern to spawn the enemies. The enemies have their processes paused before the user presses start and only when the ready will the fight begin.
+
+**Game Flow Logic**
+<br>
+I implemented the higher level management classes that track the existing entities and rooms. For example, the RoomManager uses a script to enable room visibility. 
+
+**Rooms**
+<br>
+I built the scene tree for the rooms. Importantly each room has an EntityManager, BuildUI, and other UI.
+
+I also provided assistance anywhere it was needed, helping with setting up the UI since that is closely related to the logic side.
 
 ### Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+Regretfully, I did not feel our progress was enough to perform full scale gameplay testing. The main feedback we receivied was during the game festival.
 
-**Summarize the key findings from your gameplay tests.**
-
-### Other Contributions
-
-**Other contributions outside roles. Delete section if not applicable**
+During the festival I was able to identify some bugs such as glitchy placement, incorrect cost deductions, etc and was able to use that to polish off some of the bugs.
 
