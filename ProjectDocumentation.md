@@ -85,9 +85,26 @@ Two ideation sketches of watercooler-themed slime monster sprites
 ### User Interface and Input
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
+
+The start menu has an option to start the game. Once the start button is clicked, a cutscene-style slideshow is played where the user can click through the slides to progress through the cutscene. After, the user is taken to a map with 3 boxes where they have a choice of choosing one. In each room, there is a build menu UI where the user can place down a combination of 3 monsters. Utilizing the 1, 2, and 3 number keys, the respective monsters will be shown and by pressing the left mouse button, they will be placed down within the board area. The user can also choose to clear the monster chosen by pressing the backspace key. Once the user is finished placing down monster entities, they can click ready and the battle scene will begin. The user can also go through different rooms by clicking the shift key and selecting the room in the map.
+
 **Describe the default input configuration.**
 
+The default input configuration is keyboard and mouse. 
+
 **Add an entry for each platform or input style your project supports.**
+
+&nbsp;&nbsp;&nbsp;&nbsp;Left Mouse Button: Pressing all buttons and placing monsters down on the map
+
+&nbsp;&nbsp;&nbsp;&nbsp;Number 1 Key: Choosing skeleton
+
+&nbsp;&nbsp;&nbsp;&nbsp;Number 2 Key: Choosing slime
+
+&nbsp;&nbsp;&nbsp;&nbsp;Number 3 Key: Choosing golem
+
+&nbsp;&nbsp;&nbsp;&nbsp;Backspace Key: Clearing shown monster
+
+&nbsp;&nbsp;&nbsp;&nbsp;Shift Key: Go back to the map
 
 ### Audio
 
@@ -99,6 +116,8 @@ Menu Soundtrack: Goblins_Den_(Regular).ogg by Leohpaz -- https://leohpaz.itch.io
 
 Battle Soundtrack: Goblins_Dance_(Battle).ogg by Leohpaz -- https://leohpaz.itch.io/minifantasy-dungeon-sfx-pack
 
+Clicking SFX: Click1B.ogg by EpeSami -- https://epesami.itch.io/mechanical-click-sound-pack
+
 Skeleton SFX: Rattling Bones.wav by spookymodem -- https://freesound.org/s/202102/ -- License: Creative Commons 0
 
 Slime SFX: Slosh A.wav by samuelcable -- https://freesound.org/s/393494/ -- License: Creative Commons 0
@@ -107,7 +126,13 @@ Golem SFX: Thump Slice.wav by johnnypanic -- https://freesound.org/s/320826/ -- 
 
 **Describe the implementation of your audio system.**
 
+<u>Soundtrack:</u> Upon the project being ran, the menu soundtrack is being played on a loop. This continues when the user enters the room. When the user clicks ready in a room, the battle soundtrack will be played on a loop. However, when switching back to the map, the menu soundtrack is played again. This logic is applicable to every room in the map. 
+
+<u>Sound Effects:</u> There is a clicking sound effect that is played whenever a button is clicked. In the Build Menu UI, sound effects are being played depending on which monster is being placed down for roughly one second. When the skeleton is placed down, a bone rattling sound effect plays. When the slime is placed down, a water sloshing sound effect plays. When the golem is placed down, a thumping sound effect plays.
+
 **Document the sound style.** 
+
+The style of the sound was aimed to represent adventurers invading a dungeon. Thus, we wanted to find a soundtrack that had dark undertones while still having an appropriate game soundtrack. The battle soundtrack involves a more jumpier beat that reflects the adventurers and monsters in battle. The sound effects of the monsters being placed down was intended to achieve an interactive connection with the user.
 
 ### Other Contributions
 
